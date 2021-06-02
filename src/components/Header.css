@@ -1,0 +1,35 @@
+.cashiswineImg {
+    display: flex;
+    margin: auto;
+    width: 100px;
+    height: 120px;
+    margin-bottom: 2vh;
+}
+.background {
+    background-image: url("/src/components/assets/wineGlass.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45vh;
+    opacity: 0.8;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+    padding-top: 17vh;
+    font-size: 3rem;
+    color: #c49e34;
+}
+.navlist {
+    padding: 1vh 0;
+    display: flex;
+    justify-content: space-around;
+}
+.link {
+    color: #665f5e;
+    padding: 0.5vh;
+    box-shadow: 0 0 0 2px black;
+    border-radius: 5px;
+}
+.link:hover {
+    color: #c49e34;
+}
