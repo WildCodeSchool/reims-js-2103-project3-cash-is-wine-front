@@ -10,14 +10,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 45vh;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 h1 {
     display: flex;
     justify-content: center;
     padding-top: 17vh;
     font-size: 3rem;
-    color: #c49e34;
+    color: white;
 }
 .navlist {
     padding: 1vh 0;
