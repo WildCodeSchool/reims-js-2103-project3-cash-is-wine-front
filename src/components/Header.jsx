@@ -6,7 +6,13 @@ const Header = () => (
   <header className="header">
     <img className="cashiswineImg" src={logoCash} alt="logo" />
     <div className="background">
-      <h1 className="flex justify-center text-5xl text-white"> Trouvez des vins prêts à boire accessibles</h1>
+      <h1 className="flex justify-center text-5xl text-white">
+        {' '}
+        Trouvez des vins,
+        <br />
+        {' '}
+        prêts à boire et accessibles
+      </h1>
     </div>
   </header>
 );
