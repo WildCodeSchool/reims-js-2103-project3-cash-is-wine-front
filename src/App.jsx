@@ -2,13 +2,17 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
+import Navbar from './components/Navbar';
+import { LoginDataProvider } from './contexts/LoginDataContext';
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Header />
-    </BrowserRouter>
-
+    <LoginDataProvider>
+      <BrowserRouter>
+        <Header />
+        <Navbar />
+      </BrowserRouter>
+    </LoginDataProvider>
   );
 }
 
