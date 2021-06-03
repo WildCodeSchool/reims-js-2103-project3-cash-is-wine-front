@@ -1,8 +1,8 @@
 .cashiswineImg {
     display: flex;
     margin: auto;
-    width: 100px;
-    height: 120px;
+    width: 170px;
+    height: 200px;
     margin-bottom: 2vh;
 }
 .background {
@@ -10,14 +10,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 45vh;
-    opacity: 0.9;
 }
 h1 {
-    display: flex;
-    justify-content: center;
     padding-top: 17vh;
-    font-size: 3rem;
-    color: white;
 }
 .navlist {
     padding: 1vh 0;
