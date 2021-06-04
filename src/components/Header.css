@@ -24,17 +24,19 @@
     background-size: cover;
 }
 .link {
-    color: #665f5e;
+    color: white;
     padding: 0.25rem 0.5rem;
     box-shadow: 0 0 0 2px black;
     border-radius: 5px;
+    margin: 0.5rem;
+    background-color: black;
 }
 .link:hover {
     color: #c49e34;
 }
 nav {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     padding: 1rem;
 }
 h1 {
