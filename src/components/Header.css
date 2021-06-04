@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@200&display=swap');
+
+h1 {
+    font-family: 'Spectral', serif;
+}
+
 .cashiswineImg {
     display: flex;
     margin: auto;
@@ -11,7 +17,7 @@
     justify-content: center;
     text-align: center;
     position: relative;
-    height: 45vh;
+    height: 35vh;
 }
 .background::before {
     filter: brightness(50%);
