@@ -8,10 +8,10 @@ const Header = () => (
     <div className="background">
       <h1 className="flex justify-center text-5xl text-white">
         {' '}
-        Trouvez des vins,
+        TROUVEZ DES VINS,
         <br />
         {' '}
-        prêts à boire et accessibles
+        PRETS A BOIRE ET ACCESSIBLES.
       </h1>
     </div>
   </header>
