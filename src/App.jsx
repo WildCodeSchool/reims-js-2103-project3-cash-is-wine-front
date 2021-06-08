@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import { LoginDataProvider } from './contexts/LoginDataContext';
 import SearchBar from './components/Searchbar';
+import WineList from './components/WineList';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Header />
+        <WineList />
         <SearchBar />
       </BrowserRouter>
     </LoginDataProvider>
