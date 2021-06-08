@@ -16,7 +16,6 @@ function App() {
         <main>
           <Routes />
         </main>
-        <Header />
         <WineList />
         <SearchBar />
       </BrowserRouter>
