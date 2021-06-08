@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import { LoginDataProvider } from './contexts/LoginDataContext';
 import { WineListProvider } from './contexts/WineListContext';
 import SearchBar from './components/Searchbar';
+import WineLister from './components/WineLister';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Navbar />
           <Header />
           <SearchBar />
+          <WineLister />
         </BrowserRouter>
       </WineListProvider>
     </LoginDataProvider>
