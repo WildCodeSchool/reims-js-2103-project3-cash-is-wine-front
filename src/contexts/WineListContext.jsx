@@ -6,7 +6,7 @@ const WineListContext = createContext();
 // encapsulate the global state inside a provider
 
 function WineListProvider({ children }) {
-  const [wineList, setWineList] = useState(); // start from undefined: no logged user
+  const [wineList, setWineList] = useState([]); // start from undefined: no logged user
 
   return (
     <WineListContext.Provider value={{ wineList, setWineList }}>
