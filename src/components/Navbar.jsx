@@ -1,21 +1,25 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 import { useLoginData } from '../contexts/LoginDataContext';
 
 const link = (path, text) => <NavLink to={path} exact activeClassName="active" className="link">{text}</NavLink>;
 
 function Navbar() {
   const { loginData } = useLoginData();
+
   return (
     <nav>
-      {link('/', 'Accueil')}
+      {link('/', 'Home')}
       {loginData == null ? (
         <>
-          {link('/wine-library', 'Vinothèque')}
+          {link('/login', 'Login')}
+          {link('/register', 'Register')}
         </>
       ) : (
         <>
-          {link('/profile', 'Compte')}
+          {link('/profile', 'Profile')}
+          {link('/logout', 'Logout')}
         </>
       )}
     </nav>

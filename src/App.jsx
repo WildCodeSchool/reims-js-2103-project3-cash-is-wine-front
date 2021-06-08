@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css';
-
 import { BrowserRouter } from 'react-router-dom';
-import Header from './components/Header';
+
+import './App.css';
+import Routes from './pages/Routes';
 import Navbar from './components/Navbar';
 import { LoginDataProvider } from './contexts/LoginDataContext';
 import { WineListProvider } from './contexts/WineListContext';
@@ -15,7 +15,9 @@ function App() {
       <WineListProvider>
         <BrowserRouter>
           <Navbar />
-          <Header />
+          <main>
+            <Routes />
+          </main>
           <SearchBar />
           <WineLister />
         </BrowserRouter>

@@ -1,8 +1,8 @@
 import React from 'react';
 import logoCash from './assets/logociw.png';
-import './Header.css';
+import './Home.css';
 
-const Header = () => (
+const Home = () => (
   <header className="header">
     <img className="cashiswineImg" src={logoCash} alt="logo" />
     <div className="background">
@@ -17,4 +17,4 @@ const Header = () => (
   </header>
 );
 
-export default Header;
+export default Home;

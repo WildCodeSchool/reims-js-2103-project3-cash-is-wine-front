@@ -5,11 +5,11 @@ import WineBottle from './WineBottle';
 
 function WineLister() {
   const url = 'http://localhost:8000/bottles';
-  const { WineList } = useWineList();
+  const { wineList } = useWineList();
   return (
     <>
-      <button type="button" onClick={() => ApiCall(url)}> Wine list </button>
-      { WineList.map((wine) => (
+      <button type="button" onClick={() => ApiCall(url)}> click</button>
+      { wineList.map((wine) => (
         <WineBottle key={wine.id} />
       ))}
     </>
