@@ -6,18 +6,22 @@ function WineBottle({ wine }) {
     <div className="container">
       <p>
         Domaine :
+        {' '}
         {wine.estate}
       </p>
       <p>
         Appellation :
+        {' '}
         {wine.appellation}
       </p>
       <p>
         Couleur :
+        {' '}
         {wine.color}
       </p>
       <p>
         Année :
+        {' '}
         {wine.year}
       </p>
     </div>
