@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import './Register.css';
 
 function Register() {
   const emailInput = useRef();
@@ -23,11 +24,15 @@ function Register() {
       });
     }}
     >
-      <label htmlFor="email">Email</label>
-      <input ref={emailInput} type="email" id="email" name="email" placeholder="cashinwine@mail.com" />
-      <label htmlFor="password">Mot de passe</label>
-      <input ref={passwordInput} type="password" id="password" name="password" />
-      <button type="submit">Confirmer</button>
+      <div className="box1">
+        <div className="child">
+          <label htmlFor="email">Email</label>
+          <input className="inputs" ref={emailInput} type="email" id="email" name="email" placeholder="cashinwine@mail.com" />
+          <label className="labelmdp" htmlFor="password">Mot de passe</label>
+          <input className="inputs" ref={passwordInput} type="password" id="password" name="password" />
+          <button className="button1" type="submit">Confirmer</button>
+        </div>
+      </div>
     </form>
   );
 }
