@@ -5,16 +5,19 @@ import './App.css';
 import Routes from './pages/Routes';
 import Navbar from './components/Navbar';
 import { LoginDataProvider } from './contexts/LoginDataContext';
+import { WineListProvider } from './contexts/WineListContext';
 
 function App() {
   return (
     <LoginDataProvider>
-      <BrowserRouter>
-        <Navbar />
-        <main>
-          <Routes />
-        </main>
-      </BrowserRouter>
+      <WineListProvider>
+        <BrowserRouter>
+          <Navbar />
+          <main>
+            <Routes />
+          </main>
+        </BrowserRouter>
+      </WineListProvider>
     </LoginDataProvider>
   );
 }
