@@ -11,14 +11,11 @@ function WineLister({ text }) {
   console.log(typeof text);
   return (
     <>
-      { wineList && wineList.filter((wine) => (wine.estate.toUpperCase()
-        .includes(text.toUpperCase())) || (wine.appellation.toUpperCase()
-        .includes(text.toUpperCase())) || (wine.color.toUpperCase()
-        .includes(text.toUpperCase())) || (wine.year.toString(10)
-        .includes(text)))
-        .map((wine) => (
-          <WineBottle key={wine.id} wine={wine} />
-        ))}
+      { wineList && wineList.filter((wine) => (Object.values(wine).join().toUpperCase()
+        .includes(text.toUpperCase())
+      )).map((wine) => (
+        <WineBottle key={wine.id} wine={wine} />
+      ))}
     </>
   );
 }
