@@ -1,0 +1,38 @@
+.box1{
+    display: grid;
+    place-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.child{
+    border: 1px solid black;
+    display: grid;
+    place-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.inputs{
+    border: 1px solid lightgrey;
+    font-size:1.5rem;
+    padding: 0.25rem;
+}
+label{
+    font-size:2rem;
+}
+.button1{
+    font-size: 1.50rem;
+    background-color: black;
+    border-radius: 10px;
+    margin-top: 3rem;
+    padding: 0.25rem 0.5rem;
+    color: white;
+}
+.button1:hover {
+    color: #c49e34;
+}
+.labelmdp{
+    margin-top: 5vh;
+}

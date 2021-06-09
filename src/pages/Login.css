@@ -1,0 +1,44 @@
+.box2{
+    display: grid;
+    place-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.child2{
+    border: 1px solid black;
+    display: grid;
+    place-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.inputs{
+    border: 1px solid lightgrey;
+    font-size:1.5rem;
+    padding: 0.25rem;
+}
+.labelLogin{
+    font-size:2rem;
+}
+.ButtonLogin{
+    font-size: 1.50rem;
+    background-color: black;
+    border-radius: 10px;
+    margin-top: 3rem;
+    padding: 0.25rem 0.5rem;
+    color: white;
+}
+.ButtonLogin:hover {
+    color: #c49e34;
+}
+.labelPassword{
+    margin-top: 5vh;
+    font-size:2rem;
+}
+.inputName, .inputPassword{
+    border: 1px solid lightgrey;
+    font-size:1.5rem;
+    padding: 0.25rem;
+}
