@@ -26,11 +26,11 @@ function Register() {
     >
       <div className="box1">
         <div className="child">
-          <label htmlFor="email">Email</label>
+          <label className="labelRegister" htmlFor="email">Email</label>
           <input className="inputs" ref={emailInput} type="email" id="email" name="email" placeholder="cashinwine@mail.com" />
           <label className="labelmdp" htmlFor="password">Mot de passe</label>
           <input className="inputs" ref={passwordInput} type="password" id="password" name="password" />
-          <button className="button1" type="submit">Confirmer</button>
+          <button className="button1" type="submit">S&apos;enregister</button>
         </div>
       </div>
     </form>

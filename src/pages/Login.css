@@ -1,11 +1,11 @@
-.box1{
+.box2{
     display: grid;
     place-items: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.child{
+.child2{
     border: 1px solid black;
     display: grid;
     place-items: center;
@@ -19,10 +19,10 @@
     font-size:1.5rem;
     padding: 0.25rem;
 }
-label{
+.labelLogin{
     font-size:2rem;
 }
-.button1{
+.ButtonLogin{
     font-size: 1.50rem;
     background-color: black;
     border-radius: 10px;
@@ -30,9 +30,15 @@ label{
     padding: 0.25rem 0.5rem;
     color: white;
 }
-.button1:hover {
+.ButtonLogin:hover {
     color: #c49e34;
 }
-.labelmdp{
+.labelPassword{
     margin-top: 5vh;
+    font-size:2rem;
+}
+.inputName, .inputPassword{
+    border: 1px solid lightgrey;
+    font-size:1.5rem;
+    padding: 0.25rem;
 }
