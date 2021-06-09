@@ -5,7 +5,7 @@ function WineBottle({ wine }) {
   return (
     <div className="container">
       <p>
-        Estate :
+        Domaine :
         {wine.estate}
       </p>
       <p>
@@ -13,11 +13,11 @@ function WineBottle({ wine }) {
         {wine.appellation}
       </p>
       <p>
-        Color :
+        Couleur :
         {wine.color}
       </p>
       <p>
-        Year :
+        Année :
         {wine.year}
       </p>
     </div>
