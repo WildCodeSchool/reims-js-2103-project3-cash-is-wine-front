@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 0.25rem 2rem 2rem 2rem;
 }
 .inputs{
     border: 1px solid lightgrey;

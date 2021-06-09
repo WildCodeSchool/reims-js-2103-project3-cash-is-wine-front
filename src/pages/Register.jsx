@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import './Register.css';
+import logoCash from './assets/logociw.png';
 
 function Register() {
   const emailInput = useRef();
@@ -26,6 +27,7 @@ function Register() {
     >
       <div className="box1">
         <div className="child">
+          <img className="cashiswineImg" src={logoCash} alt="logo" />
           <label className="labelRegister" htmlFor="email">Email</label>
           <input className="inputs" ref={emailInput} type="email" id="email" name="email" placeholder="cashinwine@mail.com" />
           <label className="labelmdp" htmlFor="password">Mot de passe</label>
