@@ -13,6 +13,7 @@ function Login() {
   return (
     <h1>
       Vinothèque de
+      {' '}
       {loginData.username}
     </h1>
   );
