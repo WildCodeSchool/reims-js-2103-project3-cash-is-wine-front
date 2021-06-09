@@ -10,7 +10,7 @@ function Navbar() {
 
   return (
     <nav>
-      {link('/', 'Acceuil')}
+      {link('/', 'Accueil')}
       {loginData == null ? (
         <>
           {link('/login', 'Se connecter')}
