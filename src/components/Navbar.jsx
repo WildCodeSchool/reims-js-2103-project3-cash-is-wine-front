@@ -10,16 +10,16 @@ function Navbar() {
 
   return (
     <nav>
-      {link('/', 'Home')}
+      {link('/', 'Acceuil')}
       {loginData == null ? (
         <>
-          {link('/login', 'Login')}
-          {link('/register', 'Register')}
+          {link('/login', 'Se connecter')}
+          {link('/register', 'Créer un compte')}
         </>
       ) : (
         <>
-          {link('/profile', 'Profile')}
-          {link('/logout', 'Logout')}
+          {link('/profile', 'Mon compte')}
+          {link('/logout', 'Déconnexion')}
         </>
       )}
     </nav>
