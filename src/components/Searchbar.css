@@ -6,15 +6,12 @@ input{
     border: 1px solid black;
 }
 
-h1{
-	color: #fff;
-	font-weight: 400px;
-}
 input, button{
 	border: none;
 	background: none;
 	outline: none;
 }
+
 button{
 	cursor: pointer;
 }
