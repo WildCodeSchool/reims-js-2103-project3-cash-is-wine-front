@@ -7,8 +7,8 @@ h1 {
 .cashiswineImg {
     display: flex;
     margin: auto;
-    width: 170px;
-    height: 200px;
+    width: 250px;
+    height: auto;
     margin-bottom: 1rem;
 }
 .background {

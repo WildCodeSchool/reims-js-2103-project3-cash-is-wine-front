@@ -5,3 +5,51 @@ input{
     font-size: 1.5rem;
     border: 1px solid black;
 }
+input, button{
+	border: none;
+	background: none;
+	outline: none;
+}
+
+button{
+	cursor: pointer;
+}
+
+.search-box{
+	display: flex;
+    margin: auto;
+    margin-top: 2rem;
+	background: #D3D3D3;
+	border-radius: 4em;
+    width: 25%;
+}
+.search-box-input{
+	width: 0px;
+	font-size: 1em;
+	color: rgb(12, 11, 11);
+	transition: .5s;
+}
+.search-box-btn{
+	display: flex;
+	border-radius: 50%;
+	width: 4em;
+	height: 4em;
+	background: #d66e91;
+	transition: .3s;
+}
+.search-box-icon{
+	margin: auto;
+	color: black;
+}
+.search-box-input::placeholder{
+	color: rgb(10, 10, 10);
+	opacity: .7;
+}
+.search-box:hover .search-box-input{
+	padding-left: 2em;
+	padding-right: 1em;
+	width: 340px;
+}
+.search-box-btn:active{
+	transform: scale(.75);
+}
