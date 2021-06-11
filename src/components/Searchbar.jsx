@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './Searchbar.css';
+import WineLister from './WineLister';
 
-function SearchBar({ getQuery }) {
+function SearchBar() {
   const [text, setText] = useState('');
 
-  const onChange = (q) => {
-    setText(q);
-    getQuery(q);
+  const onChange = (event) => {
+    setText(event.target.value);
   };
   return (
     <div className="search-box">
@@ -21,14 +20,7 @@ function SearchBar({ getQuery }) {
       />
       <button type="button" className="search-box-btn">
         <i className="search-box-icon material-icons">Go</i>
-      </button>
-    </div>
-
   );
 }
-
-SearchBar.propTypes = {
-  getQuery: PropTypes.func.isRequired,
-};
 
 export default SearchBar;
