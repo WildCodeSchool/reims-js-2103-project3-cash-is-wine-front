@@ -2,7 +2,6 @@ import React from 'react';
 import logoCash from './assets/logociw.png';
 import './Home.css';
 import Searchbar from '../components/Searchbar';
-import WineLister from '../components/WineLister';
 
 const Home = () => (
   <>
@@ -20,6 +19,7 @@ const Home = () => (
       </div>
     </header>
     <WineLister />
+    <Searchbar />
   </>
 );
 

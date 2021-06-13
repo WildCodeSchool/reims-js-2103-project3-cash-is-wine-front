@@ -29,7 +29,7 @@ button{
 	font-size: 1.25rem;
 	color: rgb(12, 11, 11);
 	transition: .5s;
-    text-align: center;
+  text-align: center;
 }
 .search-box-btn{
 	display: flex;
@@ -42,7 +42,7 @@ button{
 .search-box-icon{
 	margin: auto;
 	color: black;
-    font-size: 2rem;
+  font-size: 2rem;
 }
 .search-box-input::placeholder{
 	color: rgb(10, 10, 10);
