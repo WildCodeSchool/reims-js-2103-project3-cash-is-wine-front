@@ -7,18 +7,18 @@ import WineLister from '../components/WineLister';
 const Home = () => (
   <>
     <header className="header">
-      <img className="cashiswineImg" src={logoCash} alt="logo" />
+      <img className="cashiswineImgHome" src={logoCash} alt="logo" />
+      <Searchbar />
       <div className="background">
-        <h1 className="flex justify-center text-5xl text-white">
+        <h1>
           {' '}
           TROUVEZ DES VINS,
           <br />
           {' '}
-          PRETS A BOIRE ET ACCESSIBLES.
+          À MATURITÉ ET ACCESSIBLES.
         </h1>
       </div>
     </header>
-    <Searchbar />
     <WineLister />
   </>
 );

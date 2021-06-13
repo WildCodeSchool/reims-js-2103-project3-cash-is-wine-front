@@ -10,16 +10,21 @@ function SearchBar({ getQuery }) {
     getQuery(q);
   };
   return (
-    <div className="searchBar">
-      <input
-        type="search"
-        className="form-control"
-        placeholder="Rechercher votre bouteille"
-        results="0"
-        value={text}
-        onChange={() => onChange()}
-      />
-    </div>
+    <>
+      <div className="search-box">
+        <input
+          type="search"
+          className="search-box-input"
+          placeholder="Rechercher votre bouteille"
+          results="0"
+          value={text}
+          onChange={() => onChange()}
+        />
+        <button type="button" className="search-box-btn">
+          <i className="search-box-icon material-icons">➤</i>
+        </button>
+      </div>
+    </>
   );
 }
 
