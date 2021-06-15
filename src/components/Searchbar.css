@@ -22,12 +22,14 @@ button{
 	background: #D3D3D3;
 	border-radius: 4em;
     width: 25%;
+    margin-bottom: 1.5rem;
 }
 .search-box-input{
 	width: 0px;
-	font-size: 1em;
+	font-size: 1.25rem;
 	color: rgb(12, 11, 11);
 	transition: .5s;
+  text-align: center;
 }
 .search-box-btn{
 	display: flex;
@@ -40,6 +42,7 @@ button{
 .search-box-icon{
 	margin: auto;
 	color: black;
+  font-size: 2rem;
 }
 .search-box-input::placeholder{
 	color: rgb(10, 10, 10);

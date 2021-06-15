@@ -2,9 +2,13 @@
 
 h1 {
     font-family: 'Spectral', serif;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
 }
 
-.cashiswineImg {
+.cashiswineImgHome {
     display: flex;
     margin: auto;
     width: 250px;

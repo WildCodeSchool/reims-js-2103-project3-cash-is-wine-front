@@ -32,7 +32,7 @@ function Register() {
           <input className="inputs" ref={emailInput} type="email" id="email" name="email" placeholder="cashinwine@mail.com" />
           <label className="labelmdp" htmlFor="password">Mot de passe</label>
           <input className="inputs" ref={passwordInput} type="password" id="password" name="password" />
-          <button className="button1" type="submit">S&apos;enregister</button>
+          <button className="button1" type="submit">S&apos;enregistrer</button>
         </div>
       </div>
     </form>

@@ -29,7 +29,7 @@ function Login() {
             setLoginData({ username: usernameInput.current.value });
           }}
         >
-          Se connecter
+          Connexion
         </button>
       </div>
     </div>

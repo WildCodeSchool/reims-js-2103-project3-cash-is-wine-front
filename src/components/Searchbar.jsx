@@ -20,7 +20,7 @@ function SearchBar() {
           onChange={onChange}
         />
         <button type="button" className="search-box-btn">
-          <i className="search-box-icon material-icons">Go</i>
+          <i className="search-box-icon material-icons">➤</i>
         </button>
       </div>
       <WineLister text={text} />
