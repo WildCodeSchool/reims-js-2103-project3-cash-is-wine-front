@@ -10,7 +10,7 @@ function Navbar() {
 
   return (
     <nav className="btns">
-      {link('/', 'Acceuil')}
+      {link('/', 'Accueil')}
       {loginData == null ? (
         <>
           {link('/login', 'Se connecter')}

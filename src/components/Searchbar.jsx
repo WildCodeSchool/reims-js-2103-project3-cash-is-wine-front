@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Searchbar.css';
+import Banner from './Banner';
 import WineLister from './WineLister';
 
 function SearchBar() {
@@ -23,6 +24,7 @@ function SearchBar() {
           <i className="search-box-icon material-icons">➤</i>
         </button>
       </div>
+      <Banner />
       <WineLister text={text} />
     </>
   );
