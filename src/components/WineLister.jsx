@@ -5,10 +5,6 @@ import WineBottle from './WineBottle';
 
 function WineLister({ text }) {
   const { wineList } = useWineList();
-  // console.log(wineList);
-  // console.log(typeof wineList);
-  // console.log(text);
-  // console.log(typeof text);
   return (
     <>
       { wineList && wineList.filter((wine) => (Object.values(wine).join().toUpperCase()
