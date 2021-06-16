@@ -4,24 +4,23 @@ h1 {
     font-family: 'Spectral', serif;
     display: flex;
     justify-content: center;
-    color: white;
+    color: black;
     font-size: 3rem;
-}
-
-.cashiswineImgHome {
-    display: flex;
-    margin: auto;
-    width: 250px;
-    height: auto;
-    margin-bottom: 1rem;
 }
 .background {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
     position: relative;
-    height: 35vh;
+    height: 40vh;
+    z-index: 2;
+}
+.backgroundh1 {
+    display: flex;
+    background-color: white;
+    margin-left: 10rem;
+    border-radius: 4px;
+    opacity: 90%;
+    z-index: 1;
 }
 .background::before {
     filter: brightness(50%);
@@ -37,6 +36,7 @@ h1 {
     color: white;
     padding: 0.25rem 0.5rem;
     box-shadow: 0 0 0 2px black;
+    height: 3.5vh;
     border-radius: 5px;
     margin: 0.5rem;
     background-color: black;
@@ -51,5 +51,14 @@ nav {
 }
 h1 {
     text-shadow: 1px 1px 2px black;
-    position: relative;
+    margin: 1rem;
+}
+.cashiswineImgHome{
+    width: 100px;
+    height: 120px;
+}
+.navBar {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
 }

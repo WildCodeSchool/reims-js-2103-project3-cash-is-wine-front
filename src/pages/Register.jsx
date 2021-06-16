@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
 import './Register.css';
+import { NavLink } from 'react-router-dom';
 import logoCash from './assets/logociw.png';
+
+const link = (path, text) => <NavLink to={path} exact activeClassName="active" className="link">{text}</NavLink>;
 
 function Register() {
   const emailInput = useRef();
@@ -26,6 +29,7 @@ function Register() {
     }}
     >
       <div className="box1">
+        {link('/', 'Accueil')}
         <div className="child">
           <img className="cashiswineImg" src={logoCash} alt="logo" />
           <label className="labelRegister" htmlFor="email">Email</label>

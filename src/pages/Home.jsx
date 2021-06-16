@@ -1,15 +1,16 @@
 import React from 'react';
-import logoCash from './assets/logociw.png';
 import './Home.css';
-
-import Searchbar from '../components/Searchbar';
+import Banner from '../components/Banner';
+import WineLister from '../components/WineLister';
+import Header from './Header';
 
 const Home = () => (
   <>
-    <header className="header">
-      <img className="cashiswineImgHome" src={logoCash} alt="logo" />
-      <Searchbar />
-    </header>
+    <div className="home">
+      <Header />
+      <Banner />
+      <WineLister />
+    </div>
   </>
 );
 

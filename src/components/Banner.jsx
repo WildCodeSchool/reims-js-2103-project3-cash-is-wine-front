@@ -3,14 +3,17 @@ import React from 'react';
 function Banner() {
   return (
     <div className="background">
-      <h1>
-        {' '}
-        TROUVEZ DES VINS,
-        <br />
-        {' '}
-        À MATURITÉ ET ACCESSIBLES.
-      </h1>
+      <div className="backgroundh1">
+        <h1>
+          {' '}
+          Prêts à faire du tri
+          <br />
+          {' '}
+          dans vos caves ?
+        </h1>
+      </div>
     </div>
+
   );
 }
 

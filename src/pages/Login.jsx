@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import './Login.css';
 import logoCash from './assets/logociw.png';
 
 import { useLoginData } from '../contexts/LoginDataContext';
+
+const link = (path, text) => <NavLink to={path} exact activeClassName="active" className="link">{text}</NavLink>;
 
 function Login() {
   const { loginData, setLoginData } = useLoginData();
@@ -16,6 +18,7 @@ function Login() {
 
   return (
     <div className="box2">
+      {link('/', 'Accueil')}
       <div className="child2">
         <img className="cashiswineImg" src={logoCash} alt="logo" />
         <label className="labelLogin" htmlFor="email">Email</label>
