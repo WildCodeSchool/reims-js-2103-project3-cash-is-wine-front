@@ -15,9 +15,8 @@ h1 {
     z-index: 2;
 }
 .backgroundh1 {
-    display: flex;
     background-color: white;
-    margin-left: 10rem;
+    margin-left: 4rem;
     border-radius: 4px;
     opacity: 90%;
     z-index: 1;
@@ -36,7 +35,6 @@ h1 {
     color: white;
     padding: 0.25rem 0.5rem;
     box-shadow: 0 0 0 2px black;
-    height: 3.5vh;
     border-radius: 5px;
     margin: 0.5rem;
     background-color: black;
