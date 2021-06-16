@@ -12,7 +12,6 @@ function Navbar() {
     <nav className="navBar">
       {loginData == null ? (
         <>
-          {link('/login', 'Se connecter')}
           {link('/register', 'Créer un compte')}
         </>
       ) : (

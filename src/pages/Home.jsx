@@ -6,11 +6,9 @@ import Header from './Header';
 
 const Home = () => (
   <>
-    <div className="home">
-      <Header />
-      <Banner />
-      <WineLister />
-    </div>
+    <Header />
+    <Banner />
+    <WineLister />
   </>
 );
 
