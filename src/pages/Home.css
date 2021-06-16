@@ -2,26 +2,45 @@
 
 h1 {
     font-family: 'Spectral', serif;
+    text-align: center;
     display: flex;
     justify-content: center;
-    color: white;
-    font-size: 3rem;
+    color: black;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 2px black;
 }
-
-.cashiswineImgHome {
-    display: flex;
-    margin: auto;
-    width: 250px;
-    height: auto;
-    margin-bottom: 1rem;
+h2 {
+    font-family: 'Spectral', serif;
+    font-size: 2.25rem;
+    text-align: center;
+    margin: 1rem;
+    text-shadow: 1px 1px 2px black;
 }
 .background {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
     position: relative;
-    height: 35vh;
+    height: 40vh;
+    z-index: 2;
+}
+.backgroundh1 {
+    background-color: white;
+    max-height: 25vh;
+    margin-left: 4rem;
+    border-radius: 4px;
+    opacity: 90%;
+    z-index: 1;
+}
+.backgroundh1 .linkLogin{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.mainh1{
+    display: flex;
+    margin: auto;
+    z-index: 2;
+    color: white;
 }
 .background::before {
     filter: brightness(50%);
@@ -49,7 +68,16 @@ nav {
     justify-content: flex-end;
     padding: 1rem;
 }
-h1 {
-    text-shadow: 1px 1px 2px black;
-    position: relative;
+.cashiswineImgHome{
+    width: 100px;
+    height: 120px;
+}
+.navBar {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+.gridstyle {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
 }

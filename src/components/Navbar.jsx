@@ -9,11 +9,9 @@ function Navbar() {
   const { loginData } = useLoginData();
 
   return (
-    <nav className="btns">
-      {link('/', 'Accueil')}
+    <nav className="navBar">
       {loginData == null ? (
         <>
-          {link('/login', 'Se connecter')}
           {link('/register', 'Créer un compte')}
         </>
       ) : (
