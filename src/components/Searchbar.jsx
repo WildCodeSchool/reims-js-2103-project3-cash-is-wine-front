@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Searchbar.css';
+import { useSearchBar } from '../contexts/SearchBarContext';
 
 function SearchBar() {
-  const [text, setText] = useState('');
+  const { searchBar, setSearchBar } = useSearchBar();
 
   const onChange = (event) => {
-    setText(event.target.value);
+    setSearchBar(event.target.value);
   };
   return (
     <>
@@ -15,7 +16,7 @@ function SearchBar() {
           className="search-box-input"
           placeholder="Rechercher votre bouteille"
           results="0"
-          value={text}
+          value={searchBar}
           onChange={onChange}
         />
         <button type="button" className="search-box-btn">
