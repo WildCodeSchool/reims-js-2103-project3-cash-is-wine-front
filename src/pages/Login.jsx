@@ -38,7 +38,7 @@ function Login() {
               password: passwordInput.current.value,
             })
               .then((response) => {
-                setLoginData(response.data.token);
+                setLoginData(response.data);
               });
           }}
         >
