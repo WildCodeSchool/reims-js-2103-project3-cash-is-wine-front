@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@200&display=swap');
 
+body {
+    background-image: url("./assets/bgwine.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+}
+
 h1 {
     font-family: 'Spectral', serif;
     text-align: center;
@@ -76,6 +83,7 @@ nav {
     display: flex;
     align-items: center;
     padding: 0.5rem;
+    margin-left: 4rem;
 }
 .gridstyle {
     display: grid;
