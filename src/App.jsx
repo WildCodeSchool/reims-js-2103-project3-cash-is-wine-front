@@ -5,17 +5,20 @@ import './App.css';
 import Routes from './pages/Routes';
 import { LoginDataProvider } from './contexts/LoginDataContext';
 import { WineListProvider } from './contexts/WineListContext';
+import { SearchBarProvider } from './contexts/SearchBarContext';
 
 function App() {
   return (
     <LoginDataProvider>
-      <WineListProvider>
-        <BrowserRouter>
-          <main>
-            <Routes />
-          </main>
-        </BrowserRouter>
-      </WineListProvider>
+      <SearchBarProvider>
+        <WineListProvider>
+          <BrowserRouter>
+            <main>
+              <Routes />
+            </main>
+          </BrowserRouter>
+        </WineListProvider>
+      </SearchBarProvider>
     </LoginDataProvider>
   );
 }
