@@ -6,7 +6,7 @@ const WineListContext = createContext();
 
 function WineListProvider({ children }) {
   const [wineList, setWineList] = useState([]);
-  const url = 'http://localhost:8000/bottles';
+  const url = 'http://localhost:8000/references';
   React.useEffect(() => {
     axios.get(url)
       .then((response) => (setWineList(response.data)));
