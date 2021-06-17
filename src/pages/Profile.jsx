@@ -16,7 +16,7 @@ function Login() {
       <h1>
         Vinothèque de
         {' '}
-        {loginData.username}
+        {loginData.email}
       </h1>
       <div className="bottleForm">
         <label className="labelBottle" htmlFor="type">Type</label>
