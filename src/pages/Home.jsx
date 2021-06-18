@@ -1,14 +1,14 @@
 import React from 'react';
 import './Home.css';
 import Banner from '../components/Banner';
-import WineLister from '../components/WineLister';
+import ReferenceLister from '../components/ReferenceLister';
 import Header from './Header';
 
 const Home = () => (
   <>
     <Header />
     <Banner />
-    <WineLister />
+    <ReferenceLister />
   </>
 );
 
