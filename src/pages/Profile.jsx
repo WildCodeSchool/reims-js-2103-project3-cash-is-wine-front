@@ -6,7 +6,6 @@ import './Profile.css';
 
 function Login() {
   const { loginData } = useLoginData();
-  console.log(loginData.userId);
 
   if (loginData == null) {
     return <Redirect to="/login" />;
