@@ -1,19 +1,25 @@
 import React, { createContext, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { useLoginData } from './LoginDataContext';
 
 const WinaryContext = createContext();
 
 function WinaryProvider({ children }) {
-  const [Winary, setWinary] = useState([]);
-  const url = 'http://localhost:8000/users/1/bottle';
+  const { loginData } = useLoginData();
+
+  const [winary, setWinary] = useState([]);
+
   React.useEffect(() => {
-    axios.get(url)
-      .then((response) => (setWinary(response.data)));
-  }, []);
+    if (loginData != null) {
+      const url = `http://localhost:8000/users/${loginData.userId}/bottles`;
+      axios.get(url)
+        .then((response) => (setWinary(response.data)));
+    }
+  }, [loginData]);
 
   return (
-    <WinaryContext.Provider value={{ Winary }}>
+    <WinaryContext.Provider value={{ winary }}>
       {children}
     </WinaryContext.Provider>
   );

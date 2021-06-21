@@ -3,11 +3,11 @@ import { useWinary } from '../contexts/WinaryContext';
 import Bottle from './Bottle';
 
 function ShowWinary() {
-  const { Winary } = useWinary();
+  const { winary } = useWinary();
 
   return (
     <>
-      { Winary && Winary.map((bottle) => (
+      { winary && winary.map((bottle) => (
         <Bottle key={bottle.id} bottle={bottle} />
       ))}
     </>
