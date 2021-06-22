@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import ShowWinary from '../components/ShowWinary';
@@ -7,6 +7,19 @@ import './Profile.css';
 
 function Login() {
   const { loginData } = useLoginData();
+  const [uploadFile, setUploadFile] = useState();
+
+  const changeHandler = (e) => {
+    setUploadFile(e.target.files[0]);
+  };
+
+  const handleSubmit = () => {
+    const formData = new FormData();
+    formData.append('File', uploadFile);
+    const url = 'http://localhost:8000/upload';
+    axios.post(url, formData)
+      .then((response) => (setUploadFile(response.data)));
+  };
 
   if (loginData == null) {
     return <Redirect to="/login" />;
@@ -46,6 +59,12 @@ function Login() {
         </div>
         <div className="btnContainer">
           <button className="btnBottle" type="button">Ajouter une autre bouteille</button>
+          <input className="inputBottle" type="text" id="text" name="text" placeholder="6" required />
+          <label className="labelImage" htmlFor="labelRecto">Etiquette avant</label>
+          <input className="inputImage" type="file" id="labelBottle" name="file" placeholder="Ajoutez votre image" onChange={changeHandler} />
+        </div>
+        <div className="btnContainer">
+          <button className="btnBottle" type="button" onClick={handleSubmit}>Ajouter une image</button>
           <button
             className="btnBottle"
             type="submit"
