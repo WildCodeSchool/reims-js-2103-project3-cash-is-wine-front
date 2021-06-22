@@ -18,6 +18,7 @@ button{
 .search-box{
 	display: flex;
     margin: auto;
+	margin-top: 1rem;
 	background: #D3D3D3;
 	border-radius: 4em;
     width: 25%;

@@ -9,9 +9,10 @@ function Navbar() {
   const { loginData } = useLoginData();
 
   return (
-    <nav className="navBar">
+    <div className="navBar">
       {loginData == null ? (
         <>
+          {link('/login', 'Se connecter')}
           {link('/register', 'Créer un compte')}
         </>
       ) : (
@@ -20,7 +21,7 @@ function Navbar() {
           {link('/logout', 'Déconnexion')}
         </>
       )}
-    </nav>
+    </div>
   );
 }
 
