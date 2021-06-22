@@ -15,7 +15,7 @@ function Banner() {
           dans votre cave ?
         </h2>
         <div className="linkLogin">
-          {link('/login', 'Vendre son vin')}
+          {link('/estimate', 'Estimez votre vin')}
         </div>
       </div>
       <h1 className="mainh1">

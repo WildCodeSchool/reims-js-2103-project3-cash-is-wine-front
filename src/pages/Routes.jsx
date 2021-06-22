@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Home from './Home';
+import Estimate from './Estimate';
 import Login from './Login';
 import Logout from './Logout';
 import Profile from './Profile';
@@ -13,6 +14,7 @@ function Routes() {
   return (
     <Switch>
       {route('/', Home)}
+      {route('/estimate', Estimate)}
       {route('/login', Login)}
       {route('/logout', Logout)}
       {route('/profile', Profile)}

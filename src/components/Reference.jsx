@@ -1,35 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function WineBottle({ wine }) {
+function Reference({ reference }) {
   return (
     <div className="container">
       <p>
         Domaine :
         {' '}
-        {wine.estate}
+        {reference.estate}
       </p>
       <p>
         Appellation :
         {' '}
-        {wine.appellation}
+        {reference.appellation}
       </p>
       <p>
         Couleur :
         {' '}
-        {wine.color}
+        {reference.color}
       </p>
       <p>
         Année :
         {' '}
-        {wine.year}
+        {reference.year}
       </p>
     </div>
   );
 }
 
-WineBottle.propTypes = {
-  wine: PropTypes.shape({
+Reference.propTypes = {
+  reference: PropTypes.shape({
     estate: PropTypes.string.isRequired,
     appellation: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
@@ -37,7 +37,7 @@ WineBottle.propTypes = {
   }),
 
 };
-WineBottle.defaultProps = {
-  wine: undefined,
+Reference.defaultProps = {
+  reference: undefined,
 };
-export default WineBottle;
+export default Reference;
