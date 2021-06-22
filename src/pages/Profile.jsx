@@ -10,6 +10,9 @@ function Login() {
   if (loginData == null) {
     return <Redirect to="/login" />;
   }
+  return (
+    <ShowWinary />
+  );
 }
 
 export default Login;
