@@ -5,7 +5,7 @@ import logoCash from './assets/logociw.png';
 
 const Header = () => (
   <div className="container">
-    <nav className="navBar"><Navbar /></nav>
+    <Navbar />
     <img className="cashiswineImgHome" src={logoCash} alt="logo" />
   </div>
 );

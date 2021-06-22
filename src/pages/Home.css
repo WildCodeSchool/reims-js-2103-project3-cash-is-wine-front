@@ -83,7 +83,7 @@ h2 {
   
 .navBar { 
     display: inline-block;
-    margin-top:0.5rem;
+    margin-top:1rem;
     justify-content: flex-end;
     grid-area: navBar; 
 }

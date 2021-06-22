@@ -9,7 +9,7 @@ function Navbar() {
   const { loginData } = useLoginData();
 
   return (
-    <div className="navBar">
+    <nav className="navBar">
       {loginData == null ? (
         <>
           {link('/login', 'Se connecter')}
@@ -21,7 +21,7 @@ function Navbar() {
           {link('/logout', 'Déconnexion')}
         </>
       )}
-    </div>
+    </nav>
   );
 }
 
