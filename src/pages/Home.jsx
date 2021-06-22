@@ -3,6 +3,7 @@ import './Home.css';
 import Banner from '../components/Banner';
 import WineLister from '../components/WineLister';
 import Searchbar from '../components/Searchbar';
+import ReferenceLister from '../components/ReferenceLister';
 import Header from './Header';
 
 const Home = () => (
@@ -11,6 +12,7 @@ const Home = () => (
     <Banner />
     <Searchbar />
     <WineLister />
+    <ReferenceLister />
   </>
 );
 
