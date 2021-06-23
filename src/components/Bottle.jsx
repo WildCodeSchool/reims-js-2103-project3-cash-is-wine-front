@@ -15,9 +15,14 @@ function Bottle({ bottle }) {
         {bottle.appellation}
       </p>
       <p>
-        Year :
+        Année :
         {' '}
         {bottle.year}
+      </p>
+      <p>
+        Récompense :
+        {' '}
+        {bottle.reward}
       </p>
     </div>
   );
@@ -25,10 +30,10 @@ function Bottle({ bottle }) {
 
 Bottle.propTypes = {
   bottle: PropTypes.shape({
-    name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     appellation: PropTypes.string.isRequired,
     year: PropTypes.string.isRequired,
+    reward: PropTypes.string,
   }),
 
 };

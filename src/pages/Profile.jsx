@@ -47,6 +47,7 @@ function Login() {
       type: typeInput.current.value,
       appellation: appellationInput.current.value,
       year: yearInput.current.value,
+      reward: rewardInput.current.value,
       reference_id: 1,
     })
       .then((response) => {
