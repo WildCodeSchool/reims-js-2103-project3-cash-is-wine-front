@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-const link = (path, text) => <NavLink to={path} exact activeClassName="active" className="link">{text}</NavLink>;
+const link = (path, text) => <NavLink to={path} exact activeClassName="active" className="btnBottle">{text}</NavLink>;
 
 function Form() {
   const [estimation, setEstimation] = useState();
@@ -39,9 +39,7 @@ function Form() {
         </label>
       </div>
       <div className="btnContainer">
-        <div className="btnBottle">
-          { link('/login', 'Se connecter') }
-        </div>
+        { link('/login', 'Se connecter', 'btnBottle') }
         <button
           className="btnBottle"
           type="button"
