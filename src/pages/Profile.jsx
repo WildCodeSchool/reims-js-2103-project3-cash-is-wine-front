@@ -3,12 +3,24 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import ShowWinary from '../components/ShowWinary';
 import { useLoginData } from '../contexts/LoginDataContext';
+import { useWinary } from '../contexts/WinaryContext';
 import './Profile.css';
 
 function Login() {
   const { loginData } = useLoginData();
+  const { setWinary } = useWinary();
+
+  if (loginData == null) {
+    return <Redirect to="/login" />;
+  }
+
   const [bottleFrontFile, setBottleFrontFile] = useState();
   const [bottleBackFile, setBottleBackFile] = useState();
+
+  const typeInput = useRef();
+  const appellationInput = useRef();
+  const yearInput = useRef();
+  const rewardInput = useRef();
 
   const changeFront = (e) => {
     setBottleFrontFile(e.target.files[0]);
@@ -24,17 +36,23 @@ function Login() {
     formData.append('bottleBack', bottleBackFile);
     const url = 'http://localhost:8000/upload';
     axios.post(url, formData)
-      .then((response) => (console.log(response.data)));
+      .then((response) => {
+        console.log(response.data);
+      });
   };
 
-  if (loginData == null) {
-    return <Redirect to="/login" />;
-  }
-
-  const typeInput = useRef();
-  const appellationInput = useRef();
-  const yearInput = useRef();
-  const rewardInput = useRef();
+  const dataSubmit = () => {
+    const url = `http://localhost:8000/users/${loginData.userId}/bottles`;
+    axios.post(url, {
+      type: typeInput.current.value,
+      appellation: appellationInput.current.value,
+      year: yearInput.current.value,
+      reference_id: 1,
+    })
+      .then((response) => {
+        setWinary((previousWinary) => ([...previousWinary, response.data]));
+      });
+  };
 
   return (
     <>
@@ -63,7 +81,6 @@ function Login() {
         </div>
         <div className="btnContainer">
           <button className="btnBottle" type="button">Ajouter une autre bouteille</button>
-          <input className="inputBottle" type="text" id="text" name="text" placeholder="6" required />
           <label className="labelImage" htmlFor="labelRecto">Etiquette avant</label>
           <input className="inputImage" type="file" id="labelRecto" name="fileFront" placeholder="Ajoutez votre image" onChange={changeFront} />
           <label className="labelImage" htmlFor="labelVerso">Etiquette arrière</label>
@@ -75,16 +92,8 @@ function Login() {
             className="btnBottle"
             type="submit"
             onClick={() => {
-              const url = `http://localhost:8000/users/${loginData.userId}/bottles`;
-              axios.post(url, {
-                type: typeInput.current.value,
-                appellation: appellationInput.current.value,
-                year: yearInput.current.value,
-                reference_id: 1,
-              })
-                .then((response) => {
-                  console.log(response.data);
-                });
+              handleSubmit();
+              dataSubmit();
             }}
           >
             Je vends mes bouteilles!
