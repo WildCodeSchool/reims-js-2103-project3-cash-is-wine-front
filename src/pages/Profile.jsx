@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Redirect, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import ShowWinary from '../components/ShowWinary';
@@ -21,6 +21,25 @@ const link = (path, text, dcButton) => (
 
 function Login() {
   const { loginData } = useLoginData();
+  const [bottleFrontFile, setBottleFrontFile] = useState();
+  const [bottleBackFile, setBottleBackFile] = useState();
+
+  const changeFront = (e) => {
+    setBottleFrontFile(e.target.files[0]);
+  };
+
+  const changeBack = (e) => {
+    setBottleBackFile(e.target.files[0]);
+  };
+
+  const handleSubmit = () => {
+    const formData = new FormData();
+    formData.append('bottleFront', bottleFrontFile);
+    formData.append('bottleBack', bottleBackFile);
+    const url = 'http://localhost:8000/upload';
+    axios.post(url, formData)
+      .then((response) => (console.log(response.data)));
+  };
 
   if (loginData == null) {
     return <Redirect to="/login" />;
@@ -61,6 +80,14 @@ function Login() {
         </div>
         <div className="btnContainer">
           <button className="btnBottle" type="button">Ajouter une autre bouteille</button>
+          <input className="inputBottle" type="text" id="text" name="text" placeholder="6" required />
+          <label className="labelImage" htmlFor="labelRecto">Etiquette avant</label>
+          <input className="inputImage" type="file" id="labelRecto" name="fileFront" placeholder="Ajoutez votre image" onChange={changeFront} />
+          <label className="labelImage" htmlFor="labelVerso">Etiquette arrière</label>
+          <input className="inputImage" type="file" id="labelVerso" name="fileBack" placeholder="Ajoutez votre image" onChange={changeBack} />
+        </div>
+        <div className="btnContainer">
+          <button className="btnBottle" type="button" onClick={handleSubmit}>Ajouter une image</button>
           <button
             className="btnBottle"
             type="submit"
