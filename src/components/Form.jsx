@@ -39,12 +39,9 @@ function Form() {
         </label>
       </div>
       <div className="btnContainer">
-        <button
-          className="btnBottle"
-          type="button"
-        >
+        <div className="btnBottle">
           { link('/login', 'Se connecter') }
-        </button>
+        </div>
         <button
           className="btnBottle"
           type="button"
