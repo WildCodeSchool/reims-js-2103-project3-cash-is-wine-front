@@ -59,7 +59,7 @@ h2 {
     z-index: 2;
     color: white;
 }
-.link {
+.link, .dcButton {
     color: white;
     padding: 0.25rem 0.5rem;
     box-shadow: 0 0 0 2px black;
@@ -73,7 +73,7 @@ h2 {
 }
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
@@ -82,7 +82,8 @@ h2 {
 }
   
 .navBar { 
-    display: inline-block;
+    display: flex;
+    max-height: 5vh;
     margin-top:1rem;
     justify-content: flex-end;
     grid-area: navBar; 
@@ -94,4 +95,8 @@ h2 {
     justify-self: center;
     grid-area: cashiswineImgHome;
 }
-  
+
+.closeButton {
+    display: flex;
+    justify-content: flex-end;
+}

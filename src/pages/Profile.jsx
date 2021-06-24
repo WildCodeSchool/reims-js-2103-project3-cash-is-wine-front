@@ -1,10 +1,23 @@
 import React, { useRef, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import ShowWinary from '../components/ShowWinary';
 import { useLoginData } from '../contexts/LoginDataContext';
 import { useWinary } from '../contexts/WinaryContext';
 import './Profile.css';
+
+const link = (path, text, dcButton) => (
+  <div className="closeButton">
+    <NavLink
+      to={path}
+      exact
+      activeClassName="active"
+      className={dcButton ?? 'link'}
+    >
+      {text}
+    </NavLink>
+  </div>
+);
 
 function Login() {
   const { loginData } = useLoginData();
@@ -54,6 +67,7 @@ function Login() {
 
   return (
     <>
+      { link('/logout', 'Déconnexion', 'dcButton') }
       <div className="formContainer">
         <h1>
           Vinothèque de
