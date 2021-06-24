@@ -61,7 +61,7 @@ function Login() {
       reference_id: 1,
     })
       .then((response) => {
-        setWinary((previousWinary) => ([...previousWinary, response.data]));
+        setWinary((previousWinary) => ([response.data, ...previousWinary]));
       });
   };
 
