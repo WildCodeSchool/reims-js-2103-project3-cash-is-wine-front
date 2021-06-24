@@ -82,10 +82,7 @@ h2 {
 }
   
 .navBar { 
-    display: flex;
-    max-height: 5vh;
     margin-top:1rem;
-    justify-content: flex-end;
     grid-area: navBar; 
 }
   
@@ -99,4 +96,36 @@ h2 {
 .closeButton {
     display: flex;
     justify-content: flex-end;
+}
+.bottlesContainer {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    font-weight: bold;
+}
+::placeholder{
+    font-weight: lighter;
+    opacity: 40%;
+}
+.optionValue{
+    font-weight: lighter;
+}
+.Bottleprice div {
+    width: 10vw;
+    border: 2px solid #c49e34;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: white;
+}
+.Bottleprice p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+.Bottleprice {
+    display: flex;
+    justify-content: center;
 }

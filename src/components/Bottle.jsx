@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function Bottle({ bottle }) {
   return (
-    <div className="container">
+    <div className="bottlesContainer">
       <p>
         Type :
         {' '}
