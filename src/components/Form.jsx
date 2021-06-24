@@ -1,5 +1,8 @@
 import React, { useState, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+
+const link = (path, text) => <NavLink to={path} exact activeClassName="active" className="btnBottle">{text}</NavLink>;
 
 function Form() {
   const [estimation, setEstimation] = useState();
@@ -25,6 +28,7 @@ function Form() {
         </label>
         <select className="inputBottle" ref={rewardInput}>
           <option value="">--Veuillez choisir une récompense--</option>
+          <option value="Aucune">Aucune</option>
           <option value="Récompense N°1">Récompense N°1</option>
           <option value="Récompense N°2">Récompense N°2</option>
           <option value="Récompense N°3">Récompense N°3</option>
@@ -35,7 +39,7 @@ function Form() {
         </label>
       </div>
       <div className="btnContainer">
-        <button className="btnBottle" type="button">Ajouter une autre bouteille</button>
+        { link('/login', 'Se connecter', 'btnBottle') }
         <button
           className="btnBottle"
           type="button"

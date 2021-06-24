@@ -1,9 +1,23 @@
 import React, { useRef, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import ShowWinary from '../components/ShowWinary';
 import { useLoginData } from '../contexts/LoginDataContext';
+
 import './Profile.css';
+
+const link = (path, text, dcButton) => (
+  <div className="closeButton">
+    <NavLink
+      to={path}
+      exact
+      activeClassName="active"
+      className={dcButton ?? 'link'}
+    >
+      {text}
+    </NavLink>
+  </div>
+);
 
 function Login() {
   const { loginData } = useLoginData();
@@ -38,6 +52,7 @@ function Login() {
 
   return (
     <>
+      { link('/logout', 'Déconnexion', 'dcButton') }
       <div className="formContainer">
         <h1>
           Vinothèque de
@@ -54,12 +69,12 @@ function Login() {
           <label className="labelBottle" htmlFor="medal">
             Récompense/Médaille
           </label>
-         <select className="inputBottle" ref={rewardInput}>
-          <option value="">--Veuillez choisir une récompense--</option>
-          <option value="Récompense N°1">Récompense N°1</option>
-          <option value="Récompense N°2">Récompense N°2</option>
-          <option value="Récompense N°3">Récompense N°3</option>
-        </select>
+          <select className="inputBottle" ref={rewardInput}>
+            <option value="">--Veuillez choisir une récompense--</option>
+            <option value="Récompense N°1">Récompense N°1</option>
+            <option value="Récompense N°2">Récompense N°2</option>
+            <option value="Récompense N°3">Récompense N°3</option>
+          </select>
           <label className="labelBottle" htmlFor="price">Prix</label>
           <input className="inputBottle" type="text" id="text" name="text" required />
         </div>
