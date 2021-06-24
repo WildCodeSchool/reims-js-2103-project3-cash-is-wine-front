@@ -5,14 +5,24 @@ function Bottle({ bottle }) {
   return (
     <div className="container">
       <p>
-        Name :
+        Type :
         {' '}
-        {bottle.name}
+        {bottle.type}
       </p>
       <p>
-        User :
+        Appellation :
         {' '}
-        {bottle.user_id}
+        {bottle.appellation}
+      </p>
+      <p>
+        Année :
+        {' '}
+        {bottle.year}
+      </p>
+      <p>
+        Récompense :
+        {' '}
+        {bottle.reward}
       </p>
     </div>
   );
@@ -20,8 +30,10 @@ function Bottle({ bottle }) {
 
 Bottle.propTypes = {
   bottle: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    user_id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    appellation: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    reward: PropTypes.string,
   }),
 
 };
