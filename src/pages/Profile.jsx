@@ -34,16 +34,13 @@ function Login() {
     const formData = new FormData();
     formData.append('bottleFront', bottleFrontFile);
     formData.append('bottleBack', bottleBackFile);
-    const url = 'http://localhost:8000/upload';
-    axios.post(url, formData)
+    const uploadUrl = 'http://localhost:8000/upload';
+    const bottleUrl = `http://localhost:8000/users/${loginData.userId}/bottles`;
+    axios.post(uploadUrl, formData)
       .then((response) => {
         console.log(response.data);
       });
-  };
-
-  const dataSubmit = () => {
-    const url = `http://localhost:8000/users/${loginData.userId}/bottles`;
-    axios.post(url, {
+    axios.post(bottleUrl, {
       type: typeInput.current.value,
       appellation: appellationInput.current.value,
       year: yearInput.current.value,
@@ -81,23 +78,20 @@ function Login() {
           </select>
         </div>
         <div className="btnContainer">
-          <button className="btnBottle" type="button">Ajouter une autre bouteille</button>
           <label className="labelImage" htmlFor="labelRecto">Etiquette avant</label>
           <input className="inputImage" type="file" id="labelRecto" name="fileFront" placeholder="Ajoutez votre image" onChange={changeFront} />
           <label className="labelImage" htmlFor="labelVerso">Etiquette arrière</label>
           <input className="inputImage" type="file" id="labelVerso" name="fileBack" placeholder="Ajoutez votre image" onChange={changeBack} />
         </div>
         <div className="btnContainer">
-          <button className="btnBottle" type="button" onClick={handleSubmit}>Ajouter une image</button>
           <button
             className="btnBottle"
             type="submit"
             onClick={() => {
               handleSubmit();
-              dataSubmit();
             }}
           >
-            Je vends mes bouteilles!
+            Ajouter à la vinothèque
           </button>
         </div>
       </div>
