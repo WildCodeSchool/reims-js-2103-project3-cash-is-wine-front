@@ -24,7 +24,7 @@ function Form() {
         <label className="labelBottle" htmlFor="year">Millésime</label>
         <input className="inputBottle" ref={yearInput} type="text" id="text" name="text" placeholder="2005" required />
         <label className="labelBottle" htmlFor="medal">
-          Récompense/Médaille
+          Récompense / Médaille
         </label>
         <select className="inputBottle" ref={rewardInput}>
           <option value="">--Veuillez choisir une récompense--</option>
@@ -33,10 +33,14 @@ function Form() {
           <option value="Récompense N°2">Récompense N°2</option>
           <option value="Récompense N°3">Récompense N°3</option>
         </select>
-        <label className="labelBottle" htmlFor="price">
-          Prix:
-          {estimation}
-        </label>
+        <div className="Bottleprice" htmlFor="price">
+          <p>Prix estimé :</p>
+          <div>
+            {estimation}
+            {' '}
+            €
+          </div>
+        </div>
       </div>
       <div className="btnContainer">
         { link('/login', 'Se connecter', 'btnBottle') }

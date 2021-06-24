@@ -11,22 +11,21 @@
 
 .bottleForm {
     display: grid;
-    grid-template-columns: repeat(2, 0.1fr);
     text-align: center;
     justify-content: center;
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .inputBottle {
-    font-weight: bold;
     font-size:1.5rem;
     padding: 0.25rem;
-    border: 1px solid black;
+    border: 2px solid #c49e34;
     background-color: white;
     border-radius: 5px;
     margin: 0.5rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
 }
-
 .labelBottle {
     font-size: 1.5rem;
     font-weight: bold;

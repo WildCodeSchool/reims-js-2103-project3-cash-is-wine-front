@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 
 function Reference({ reference }) {
   return (
-    <div className="container">
-      <p>
-        Domaine :
-        {' '}
-        {reference.estate}
-      </p>
+    <div className="bottlesContainer">
       <p>
         Appellation :
         {' '}
