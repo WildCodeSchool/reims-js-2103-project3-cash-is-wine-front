@@ -34,12 +34,17 @@ function Form() {
           <option value="Récompense N°3">Récompense N°3</option>
         </select>
         <div className="Bottleprice" htmlFor="price">
-          <p>Prix estimé :</p>
+          {estimation && (
           <div>
-            {estimation}
-            {' '}
-            €
+            <p>
+              Prix estimé :
+              {' '}
+              {estimation}
+              {' '}
+              €
+            </p>
           </div>
+          )}
         </div>
       </div>
       <div className="btnContainer">
