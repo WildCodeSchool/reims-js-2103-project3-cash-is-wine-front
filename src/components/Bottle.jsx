@@ -3,24 +3,21 @@ import PropTypes from 'prop-types';
 
 function Bottle({ bottle }) {
   return (
-    <div className="bottlesContainer">
-      <p>
-        Type :
+    <div className="bottlesVinotheque">
+      <p className="descriptionBottles">
+        <span>Type :</span>
         {' '}
         {bottle.type}
-      </p>
-      <p>
-        Appellation :
+        <br />
+        <span>Appellation :</span>
         {' '}
         {bottle.appellation}
-      </p>
-      <p>
-        Année :
+        <br />
+        <span>Année :</span>
         {' '}
         {bottle.year}
-      </p>
-      <p>
-        Récompense :
+        <br />
+        <span>Récompense :</span>
         {' '}
         {bottle.reward}
       </p>
