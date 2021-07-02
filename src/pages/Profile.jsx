@@ -69,7 +69,7 @@ function Login() {
           backImg: imageBack,
         })
           .then((res) => {
-            setWinary((previousWinary) => ([...previousWinary, res.data]));
+            setWinary((previousWinary) => ([res.data, ...previousWinary]));
           });
       });
   };
