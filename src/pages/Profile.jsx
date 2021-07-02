@@ -46,7 +46,6 @@ function Login() {
   const handleSubmit = () => {
     let imageFront;
     let imageBack;
-    const path = '.../reims-js-2103-project3-cash-is-wine-back/uploads/';
     const formData = new FormData();
     formData.append('bottleFront', bottleFrontFile);
     formData.append('bottleBack', bottleBackFile);
@@ -54,8 +53,12 @@ function Login() {
     const bottleUrl = `http://localhost:8000/users/${loginData.userId}/bottles`;
     axios.post(uploadUrl, formData)
       .then((response) => {
-        if (response.data.imageFront != null) { imageFront = `${path}${response.data.imageFront.originalname}`; }
-        if (response.data.imageBack != null) { imageBack = `${path}${response.data.imageBack.originalname}`; }
+        if (response.data.imageFront != null) {
+          imageFront = response.data.imageFront.originalname;
+        }
+        if (response.data.imageBack != null) {
+          imageBack = response.data.imageBack.originalname;
+        }
         axios.post(bottleUrl, {
           type: typeInput.current.value,
           appellation: appellationInput.current.value,
