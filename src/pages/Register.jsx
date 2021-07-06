@@ -1,5 +1,5 @@
-import React, { useRef /* , useState */ } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import logoCash from './assets/logociw.png';
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,6 +22,8 @@ function Register() {
   const passwordInput = useRef();
   const confirmPasswordInput = useRef();
 
+  const history = useHistory();
+
   return (
     <form onSubmit={(event) => {
       event.preventDefault();
@@ -32,7 +34,7 @@ function Register() {
         && passwordInput.current.value === confirmPasswordInput.current.value
       ) {
         // setRegister('Vous êtes inscrit avec succès');
-        toast.success('Vous êtes inscrit avec succès', toastConfig);
+        toast.success('Vous êtes inscrit avec succès et vous allez être redirigé...', { ...toastConfig, onClose: () => history.push('/login') });
       } else {
         // setRegister('Veuillez vérifier votre email ou mot de passe');
         toast.error('Veuillez vérifier votre email ou mot de passe', toastConfig);
@@ -66,8 +68,6 @@ function Register() {
           <input className="inputs" ref={passwordInput} type="password" id="password" name="password" />
           <label className="labelmdp" htmlFor="password">Confirmer votre mot de passe</label>
           <input className="inputs" ref={confirmPasswordInput} type="password" id="password" name="password" />
-          {/*
-          <button className="button1" type="submit">S&apos;enregistrer</button> */}
           <div>
             <button className="button1" type="submit">
               S&apos;enregistrer
