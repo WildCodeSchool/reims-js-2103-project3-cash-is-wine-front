@@ -63,7 +63,6 @@ function Form() {
             axios.get(url)
               .then((response) => {
                 setEstimation(response.data.price);
-                console.log(response.data.price);
               });
           }}
         >

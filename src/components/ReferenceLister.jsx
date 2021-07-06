@@ -13,9 +13,7 @@ function ReferenceLister() {
         .join().toUpperCase()
         .includes(searchBar.toUpperCase())
       )).map((reference) => (
-        <>
-          <Reference key={reference.id} reference={reference} />
-        </>
+        <Reference key={reference.id} reference={reference} />
       ))}
     </>
   );
