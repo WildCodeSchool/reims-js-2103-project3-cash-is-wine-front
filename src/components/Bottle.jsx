@@ -17,6 +17,7 @@ function Bottle({ bottle }) {
         {' '}
         {bottle.year}
         <br />
+        {' '}
         <span>Récompense :</span>
         {' '}
         {bottle.reward}
