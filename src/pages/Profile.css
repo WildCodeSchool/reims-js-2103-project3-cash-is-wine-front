@@ -74,15 +74,14 @@
 .bottles-container{
     padding: 2rem;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    gap: 0rem;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
 }
 
 .descriptionBottles {
     text-align: center;
     color: rgb(0, 0, 0);
-    font-size: 1rem;
+    font-size: 1.5rem;
     text-decoration: underline goldenrod;
     font-weight: 600;
     border: solid 2px #000000;
@@ -91,11 +90,7 @@
     border-radius: 5%;
     margin-bottom: 1rem;
     margin-left: 2.4rem;
-}
-
-.descriptionBottles:hover {
-    opacity: 0.5;
-    transition: 0.5s;
+    min-height: 30vh;
 }
 
 span {
@@ -104,4 +99,24 @@ span {
 
 .bottlesVinotheque {
     text-align: center;
+}
+
+ .bottleimg {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+} 
+
+.imgbottle {
+    max-width: 100%;
+    max-height: 15vh;
+}
+
+.imgbottle:hover {
+    opacity: 0.9;
+}
+
+.imgbottle:active
+{
+   transform: scale(5);
 }
