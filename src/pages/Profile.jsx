@@ -44,6 +44,8 @@ function Login() {
   };
 
   const handleSubmit = () => {
+    let imageFront;
+    let imageBack;
     const formData = new FormData();
     formData.append('bottleFront', bottleFrontFile);
     formData.append('bottleBack', bottleBackFile);
@@ -51,17 +53,24 @@ function Login() {
     const bottleUrl = `http://localhost:8000/users/${loginData.userId}/bottles`;
     axios.post(uploadUrl, formData)
       .then((response) => {
-        console.log(response.data);
-      });
-    axios.post(bottleUrl, {
-      type: typeInput.current.value,
-      appellation: appellationInput.current.value,
-      year: yearInput.current.value,
-      reward: rewardInput.current.value,
-      reference_id: 1,
-    })
-      .then((response) => {
-        setWinary((previousWinary) => ([response.data, ...previousWinary]));
+        if (response.data.imageFront != null) {
+          imageFront = response.data.imageFront.originalname;
+        }
+        if (response.data.imageBack != null) {
+          imageBack = response.data.imageBack.originalname;
+        }
+        axios.post(bottleUrl, {
+          type: typeInput.current.value,
+          appellation: appellationInput.current.value,
+          year: yearInput.current.value,
+          reward: rewardInput.current.value,
+          reference_id: 1,
+          frontImg: imageFront,
+          backImg: imageBack,
+        })
+          .then((res) => {
+            setWinary((previousWinary) => ([res.data, ...previousWinary]));
+          });
       });
   };
 
