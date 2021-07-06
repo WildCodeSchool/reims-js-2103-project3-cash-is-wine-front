@@ -40,7 +40,9 @@
     background-color: white;
     border-radius: 5px;
 }
-
+.divtruc {
+    padding-top: 1rem;
+}
 .labelImage {
     font-weight: bold;
     font-size: 1.5rem;
@@ -49,6 +51,9 @@
 .btnContainer {
     display: flex;
     justify-content: space-evenly;
+}
+.etiquetteContainer {
+    text-align: center;
 }
 
 .btnBottle {
