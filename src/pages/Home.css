@@ -97,10 +97,9 @@ h2 {
     display: flex;
     justify-content: flex-end;
 }
+
 .bottlesContainer {
-    border: 1px solid black;
-    display: flex;
-    justify-content: space-around;
+    border: 1px solid rgb(0, 0, 0);
     margin-bottom: 1.5rem;
     margin-top: 1.5rem;
     font-weight: bold;

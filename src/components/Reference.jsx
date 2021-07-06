@@ -8,13 +8,9 @@ function Reference({ reference }) {
         Appellation :
         {' '}
         {reference.appellation}
-      </p>
-      <p>
         Couleur :
         {' '}
         {reference.color}
-      </p>
-      <p>
         Année :
         {' '}
         {reference.year}

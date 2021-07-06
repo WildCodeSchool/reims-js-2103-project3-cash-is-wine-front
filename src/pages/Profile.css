@@ -7,6 +7,7 @@
     margin-top: 2rem;
     background-color: #e7e7e7;
     z-index: 1;
+    margin-bottom: 3rem;
 }
 
 .bottleForm {
@@ -63,4 +64,39 @@
 
 .btnBottle:hover {
     color: #c49e34;
+}
+
+.bottles-container{
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 0rem;
+}
+
+.descriptionBottles {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    text-decoration: underline goldenrod;
+    font-weight: 600;
+    border: solid 2px #000000;
+    background-color: whitesmoke;
+    padding: 1.5rem;
+    border-radius: 5%;
+    margin-bottom: 1rem;
+    margin-left: 2.4rem;
+}
+
+.descriptionBottles:hover {
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+span {
+    display: none;
+}
+
+.bottlesVinotheque {
+    text-align: center;
 }
