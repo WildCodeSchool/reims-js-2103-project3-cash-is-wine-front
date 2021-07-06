@@ -5,10 +5,9 @@ function Bottle({ bottle }) {
   return (
     <div className="bottlesVinotheque">
       <p className="descriptionBottles">
-      <img src={`http://localhost:8000/uploads/${bottle.frontImg}`} alt={`${bottle.id}recto`} />
-      <img src={`http://localhost:8000/uploads/${bottle.backImg}`} alt={`${bottle.id}verso`} />
-      <p>
-       <span>Type :</span>
+        <img src={`http://localhost:8000/uploads/${bottle.frontImg}`} alt={`${bottle.id}recto`} />
+        <img src={`http://localhost:8000/uploads/${bottle.backImg}`} alt={`${bottle.id}verso`} />
+        <span>Type :</span>
         {' '}
         {bottle.type}
         <br />
