@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
+import { useLoginData } from '../contexts/LoginDataContext';
 
 function Bottle({ bottle }) {
-  const [quantity, setQuantity] = useState(1);
+  const { loginData } = useLoginData();
+  const [quantity, setQuantity] = useState(bottle.quantity);
 
   return (
     <div className="bottlesVinotheque">
@@ -39,7 +42,17 @@ function Bottle({ bottle }) {
           {' '}
           €
         </h2>
-        <button type="button" onClick={() => {}}>Sauvegarder</button>
+        <button
+          type="button"
+          onClick={() => {
+            const url = `http://localhost:8000/users/${loginData.userId}/bottles/${bottle.id}`;
+            axios.put(url, {
+              quantity,
+            });
+          }}
+        >
+          Sauvegarder
+        </button>
       </p>
     </div>
   );
@@ -50,10 +63,11 @@ Bottle.propTypes = {
     id: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
     appellation: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
     reward: PropTypes.string,
     frontImg: PropTypes.string,
     backImg: PropTypes.string,
+    quantity: PropTypes.number,
     price: PropTypes.number,
   }),
 
