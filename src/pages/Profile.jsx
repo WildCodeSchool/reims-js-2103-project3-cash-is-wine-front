@@ -64,9 +64,9 @@ function Login() {
           appellation: appellationInput.current.value,
           year: yearInput.current.value,
           reward: rewardInput.current.value,
-          reference_id: 1,
           frontImg: imageFront,
           backImg: imageBack,
+          quantity: 1,
         })
           .then((res) => {
             setWinary((previousWinary) => ([res.data, ...previousWinary]));
