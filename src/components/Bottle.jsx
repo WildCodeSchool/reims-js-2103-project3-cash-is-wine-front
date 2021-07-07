@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+import { useLoginData } from '../contexts/LoginDataContext';
 
 function Bottle({ bottle }) {
+  const { loginData } = useLoginData();
   return (
     <div className="bottlesVinotheque">
       <p className="descriptionBottles">
@@ -26,6 +31,22 @@ function Bottle({ bottle }) {
         {' '}
         {bottle.reward}
       </p>
+      <div className="Btn-Trash">
+        <button
+          type="button"
+          className="trash"
+          onClick={() => {
+            const url = `http://localhost:8000/users/${loginData.userId}/bottles/${bottle.id}`;
+            axios.delete(url)
+              .then((response) => console.log(response.data));
+          }}
+        >
+          <FontAwesomeIcon
+            icon={faTrash}
+            size="lg"
+          />
+        </button>
+      </div>
     </div>
   );
 }
