@@ -78,18 +78,18 @@ h2 {
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-      ". . cashiswineImgHome . navBar";
+      ". . cashiswineImgHome navBar navBar";
 }
   
 .navBar { 
     margin-top:1rem;
     grid-area: navBar; 
+    justify-self: flex-end;
 }
   
 .cashiswineImgHome {
-    display: flex;
-    margin-bottom:1rem;
     justify-self: center;
+    height: 25vh;
     grid-area: cashiswineImgHome;
 }
 

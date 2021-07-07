@@ -64,9 +64,9 @@ function Login() {
           appellation: appellationInput.current.value,
           year: yearInput.current.value,
           reward: rewardInput.current.value,
-          reference_id: 1,
           frontImg: imageFront,
           backImg: imageBack,
+          quantity: 1,
         })
           .then((res) => {
             setWinary((previousWinary) => ([res.data, ...previousWinary]));
@@ -100,11 +100,13 @@ function Login() {
             <option value="Récompense N°3">Récompense N°3</option>
           </select>
         </div>
-        <div className="btnContainer">
-          <label className="labelImage" htmlFor="labelRecto">Etiquette avant</label>
+        <div className="etiquetteContainer">
+          <label className="labelImage" htmlFor="labelRecto">Etiquette</label>
           <input className="inputImage" type="file" id="labelRecto" name="fileFront" placeholder="Ajoutez votre image" onChange={changeFront} />
-          <label className="labelImage" htmlFor="labelVerso">Etiquette arrière</label>
-          <input className="inputImage" type="file" id="labelVerso" name="fileBack" placeholder="Ajoutez votre image" onChange={changeBack} />
+          <div className="divtruc">
+            <label className="labelImage" htmlFor="labelVerso">Contre etiquette</label>
+            <input className="inputImage" type="file" id="labelVerso" name="fileBack" placeholder="Ajoutez votre image" onChange={changeBack} />
+          </div>
         </div>
         <div className="btnContainer">
           <button
