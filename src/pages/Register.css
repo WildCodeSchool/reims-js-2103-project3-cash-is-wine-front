@@ -40,3 +40,28 @@ label{
 .labelmdp{
     margin-top: 5vh;
 }
+
+@media (max-width: 780px) {
+.labelRegister{ 
+    font-size: 1.2rem;
+    font-weight: bold;
+    }
+.labelmdp{
+    font-size: 1.2rem;
+    font-weight: bold;    
+}
+.inputs {
+    font-size: 1rem;
+}
+.cashiswineImg {
+    width: 40%;
+    height: auto;
+}
+.button1{
+    font-size: 1rem;
+    margin-top: 1.5rem;
+}
+.child {
+    margin-top: 1.5rem;
+}
+}
