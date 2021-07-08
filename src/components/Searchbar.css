@@ -55,3 +55,20 @@ button{
 .search-box-btn:active{
 	transform: scale(.75);
 }
+
+@media (max-width : 700px) {
+.search-box {
+	width: 80%;
+	height: auto;
+	}
+	.search-box:hover .search-box-input{
+		width: 160px;
+	}
+	.search-box-input{
+		margin-top: 0.8rem;
+		font-size: 1.25rem;
+		color: rgb(12, 11, 11);
+		transition: .5s;
+		text-align: center;
+	}
+}

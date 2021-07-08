@@ -3,13 +3,6 @@
     margin:0;
     padding:0;
 }
-body {
-    font-family: 'Spectral', serif;
-    background-image: url("./assets/bgwine.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 0;
-}
 
 h1 {
     text-align: center;
@@ -23,41 +16,21 @@ h2 {
     text-align: center;
     margin: 1rem;
 }
-.background::before {
-    filter: brightness(50%);
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: url("./assets/wineGlass.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.background {
-    display: flex;
-    align-items: center;
-    position: relative;
-    height: 40vh;
-    z-index: 2;
-}
-.backgroundh1 {
-    background-color: white;
-    max-height: 25vh;
-    margin-left: 4rem;
-    border-radius: 4px;
-    opacity: 90%;
-    z-index: 1;
-}
-.backgroundh1 .linkLogin{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
+
 .mainh1{
     display: flex;
     margin: auto;
     z-index: 2;
     color: white;
+}
+.linkEstimate {
+    color: white;
+    padding: 0.25rem 0.5rem;
+    box-shadow: 0 0 0 2px black;
+    border-radius: 5px;
+    margin: 0.5rem;
+    text-decoration: none;
+    background-color: black;
 }
 .link, .dcButton {
     color: white;
@@ -71,27 +44,7 @@ h2 {
 .link:hover {
     color: #c49e34;
 }
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      ". . cashiswineImgHome navBar navBar";
-}
-  
-.navBar { 
-    margin-top:1rem;
-    grid-area: navBar; 
-    justify-self: flex-end;
-}
-  
-.cashiswineImgHome {
-    justify-self: center;
-    height: 25vh;
-    grid-area: cashiswineImgHome;
-}
+
 
 .closeButton {
     display: flex;
@@ -127,4 +80,144 @@ h2 {
 .Bottleprice {
     display: flex;
     justify-content: center;
+}
+
+@media (min-width : 780px) {
+    body {
+        font-family: 'Spectral', serif;
+        background-image: url("./assets/bgwine.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 0;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+          ". . cashiswineImgHome navBar navBar";
+    }
+      
+    .navBar { 
+        margin-top:1rem;
+        grid-area: navBar; 
+        justify-self: flex-end;
+    }
+      
+    .cashiswineImgHome {
+        justify-self: center;
+        height: 25vh;
+        grid-area: cashiswineImgHome;
+    }
+    .background::before {
+        filter: brightness(50%);
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-image: url("./assets/wineGlass.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .background {
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: 40vh;
+        z-index: 2;
+    }
+    .backgroundh1 {
+        background-color: white;
+        max-height: 25vh;
+        margin-left: 4rem;
+        border-radius: 4px;
+        opacity: 90%;
+        z-index: 1;
+    }
+    .backgroundh1 .linkLogin{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width : 780px) {
+    body {
+        font-family: 'Spectral', serif;
+        background-image: url("./assets/bgresponsive.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 0;
+    }
+    .background {
+        display: flex;
+        flex-direction: column-reverse;
+        background-image: url('./assets/wineGlass.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 15vh;
+    }
+    .mainh1 {
+        font-size: 1.2rem;
+        color: rgb(255, 255, 255);
+    }
+    .linkLogin {
+        margin-top: 1rem;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+    .navBar{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .linkEstimate {
+        background-color: white;
+        color: black ;
+        padding: 0.25rem 0.5rem;
+        box-shadow: 0 0 0 2px rgb(0, 0, 0);
+        border-radius: 5px;
+        margin: 0.5rem;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .link{
+        font-weight: bold;
+    }
+
+    h2 {
+        display: none;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+    .cashiswineImgHome{
+        width: 60%;
+        margin: 1rem;
+        padding: 0.5rem;
+    }
+    .Bottleprice div {
+        border: 2px solid #c49e34;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: white;
+    }
+    .Bottleprice p {
+        font-size: 1rem;
+        font-weight: bold;
+        padding:0.5rem;
+    
+    }
+    .Bottleprice {
+        display: flex;
+        justify-content: center;
+    }
+    
 }
