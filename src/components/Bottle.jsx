@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { useLoginData } from '../contexts/LoginDataContext';
+import { useWinary } from '../contexts/WinaryContext';
 
 function Bottle({ bottle }) {
   const { loginData } = useLoginData();
   const [quantity, setQuantity] = useState(bottle.quantity);
+
+  const { winary, setWinary } = useWinary();
+
+  console.log(bottle);
+  useEffect(() => {
+    setQuantity(bottle.quantity);
+  }, [bottle.quantity]);
 
   return (
     <div className="bottlesVinotheque">
@@ -63,7 +71,9 @@ function Bottle({ bottle }) {
           onClick={() => {
             const url = `http://localhost:8000/users/${loginData.userId}/bottles/${bottle.id}`;
             axios.delete(url)
-              .then((response) => console.log(response.data));
+              .then(() => (
+                setWinary(winary.filter((bottleInWinary) => bottleInWinary.id !== bottle.id))
+              ));
           }}
         >
           <FontAwesomeIcon
