@@ -78,7 +78,7 @@ function Login() {
     <>
       { link('/logout', 'Déconnexion', 'dcButton') }
       <div className="formContainer">
-        <h1>
+        <h1 className="titleWinary">
           Vinothèque de
           {' '}
           {loginData.email}

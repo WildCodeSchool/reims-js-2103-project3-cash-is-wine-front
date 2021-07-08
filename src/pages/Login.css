@@ -52,3 +52,26 @@
     height: 170px;
     margin-bottom: 2rem;
 }
+
+@media (max-width : 780px) {
+    .labelLogin{
+        font-size:1.3rem;
+        font-weight: bold;
+    }
+    .labelPassword{
+        font-size:1.3rem;
+        font-weight: bold;
+    }
+    .inputName, .inputPassword{
+        font-size: 1rem;
+    }
+    .box2{
+        margin-top: 1rem;
+    }
+    .child2{
+        margin-top: 3rem;
+    }
+    .ButtonLogin{
+        font-size: 1.2rem;
+    }
+}

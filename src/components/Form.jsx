@@ -13,7 +13,7 @@ function Form() {
 
   return (
     <div className="formContainer">
-      <h1>
+      <h1 className="estimateTitle">
         Estimez vos bouteilles en quelques clics !
       </h1>
       <div className="bottleForm">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const link = (path, text) => <NavLink to={path} exact activeClassName="active" className="link">{text}</NavLink>;
+const link = (path, text) => <NavLink to={path} exact activeClassName="active" className="linkEstimate">{text}</NavLink>;
 
 function Banner() {
   return (
