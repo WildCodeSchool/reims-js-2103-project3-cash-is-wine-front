@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 import { useLoginData } from '../contexts/LoginDataContext';
 
 function Bottle({ bottle }) {
@@ -10,6 +12,22 @@ function Bottle({ bottle }) {
   return (
     <div className="bottlesVinotheque">
       <p className="descriptionBottles">
+        <div className="Btn-Trash">
+          <button
+            type="button"
+            className="trash"
+            onClick={() => {
+              const url = `http://localhost:8000/users/${loginData.userId}/bottles/${bottle.id}`;
+              axios.delete(url)
+                .then(() => true);
+            }}
+          >
+            <FontAwesomeIcon
+              icon={faTrash}
+              size="lg"
+            />
+          </button>
+        </div>
         <div className="bottleimg">
           <img className="imgbottle" src={`http://localhost:8000/uploads/${bottle.frontImg}`} alt={`${bottle.id}recto`} />
           <img className="imgbottle" src={`http://localhost:8000/uploads/${bottle.backImg}`} alt={`${bottle.id}verso`} />
