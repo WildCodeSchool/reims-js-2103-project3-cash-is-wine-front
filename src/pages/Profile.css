@@ -120,3 +120,9 @@ span {
 {
    transform: scale(5);
 }
+
+.Btn-Trash {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 1rem;
+}
