@@ -27,7 +27,9 @@ function Bottle({ bottle }) {
             onClick={() => {
               const url = `http://localhost:8000/users/${loginData.userId}/bottles/${bottle.id}`;
               axios.delete(url)
-                .then(() => true);
+                .then(() => (
+                  setWinary(winary.filter((bottleInWinary) => bottleInWinary.id !== bottle.id))
+                ));
             }}
           >
             <FontAwesomeIcon
@@ -78,24 +80,6 @@ function Bottle({ bottle }) {
           Sauvegarder
         </button>
       </p>
-      <div className="Btn-Trash">
-        <button
-          type="button"
-          className="trash"
-          onClick={() => {
-            const url = `http://localhost:8000/users/${loginData.userId}/bottles/${bottle.id}`;
-            axios.delete(url)
-              .then(() => (
-                setWinary(winary.filter((bottleInWinary) => bottleInWinary.id !== bottle.id))
-              ));
-          }}
-        >
-          <FontAwesomeIcon
-            icon={faTrash}
-            size="lg"
-          />
-        </button>
-      </div>
     </div>
   );
 }
