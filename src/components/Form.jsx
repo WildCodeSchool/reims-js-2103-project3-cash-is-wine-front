@@ -62,7 +62,7 @@ function Form() {
             const url = `http://localhost:8000/prices?${Object.keys(body).map((key) => `${key}=${body[key]}`).join('&')}`;
             axios.get(url)
               .then((response) => {
-                setEstimation(response.data.price);
+                setEstimation(response.data.price / 2);
               });
           }}
         >
