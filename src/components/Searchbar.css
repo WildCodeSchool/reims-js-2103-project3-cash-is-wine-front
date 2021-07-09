@@ -18,10 +18,11 @@ button{
 .search-box{
 	display: flex;
     margin: auto;
-	margin-top: 1rem;
+	margin-top: 2rem;
 	background: #D3D3D3;
 	border-radius: 4em;
     width: 25%;
+	margin-bottom: 2rem;
 }
 .search-box-input{
 	width: 0px;
