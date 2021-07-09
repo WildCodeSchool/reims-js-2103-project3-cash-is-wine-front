@@ -51,12 +51,6 @@ h2 {
     justify-content: flex-end;
 }
 
-.bottlesContainer {
-    border: 1px solid rgb(0, 0, 0);
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
-    font-weight: bold;
-}
 ::placeholder{
     font-weight: lighter;
     opacity: 40%;
@@ -201,6 +195,7 @@ h2 {
         width: 60%;
         margin: 1rem;
         padding: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.87);
     }
     .Bottleprice div {
         border: 2px solid #c49e34;

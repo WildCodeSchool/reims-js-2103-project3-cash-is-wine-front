@@ -114,6 +114,7 @@
 
 .imgbottle:hover {
     opacity: 0.9;
+    cursor: pointer;
 }
 
 .imgbottle:active
@@ -151,7 +152,7 @@
     text-align: center;
 }
 .prices {
-    color: rgb(136, 36, 36);
+    color: #ce2d6d;
     font-weight: 800;
     font-size: 1.7rem;
 }
