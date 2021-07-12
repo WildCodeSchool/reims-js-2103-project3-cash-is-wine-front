@@ -49,8 +49,8 @@ function Login() {
     const formData = new FormData();
     formData.append('bottleFront', bottleFrontFile);
     formData.append('bottleBack', bottleBackFile);
-    const uploadUrl = 'http://localhost:8000/upload';
-    const bottleUrl = `http://localhost:8000/users/${loginData.userId}/bottles`;
+    const uploadUrl = `${process.env.REACT_APP_API_URL}/upload`;
+    const bottleUrl = `${process.env.REACT_APP_API_URL}/users/${loginData.userId}/bottles`;
     axios.post(uploadUrl, formData)
       .then((response) => {
         if (response.data.imageFront != null) {

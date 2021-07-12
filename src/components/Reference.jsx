@@ -20,7 +20,7 @@ function Reference({ reference }) {
             />
           </button>
         </div>
-        <img className="imgbottle1" src={`http://localhost:8000/assets/${reference.picture}`} alt={`${reference.id}`} />
+        <img className="imgbottle1" src={`${process.env.REACT_APP_API_URL}/assets/${reference.picture}`} alt={`${reference.id}`} />
         <span className="descriptionText"> Appellation :</span>
         {' '}
         <span className="appellation">{reference.appellation}</span>
