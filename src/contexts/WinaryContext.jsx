@@ -19,7 +19,10 @@ function WinaryProvider({ children }) {
   }, [loginData]);
 
   return (
-    <WinaryContext.Provider value={{ winary, setWinary }}>
+    <WinaryContext.Provider value={{
+      winary, setWinary,
+    }}
+    >
       {children}
     </WinaryContext.Provider>
   );

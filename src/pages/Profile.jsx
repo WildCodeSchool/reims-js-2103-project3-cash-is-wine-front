@@ -4,6 +4,7 @@ import axios from 'axios';
 import ShowWinary from '../components/ShowWinary';
 import { useLoginData } from '../contexts/LoginDataContext';
 import { useWinary } from '../contexts/WinaryContext';
+import { useReferenceList } from '../contexts/ReferenceListContext';
 import './Profile.css';
 
 const link = (path, text, dcButton) => (
@@ -21,7 +22,8 @@ const link = (path, text, dcButton) => (
 
 function Login() {
   const { loginData } = useLoginData();
-  const { setWinary } = useWinary();
+  const { winary, setWinary } = useWinary();
+  const { referenceList } = useReferenceList();
 
   if (loginData == null) {
     return <Redirect to="/login" />;
@@ -30,9 +32,10 @@ function Login() {
   const [bottleFrontFile, setBottleFrontFile] = useState();
   const [bottleBackFile, setBottleBackFile] = useState();
 
-  const typeInput = useRef();
-  const appellationInput = useRef();
-  const yearInput = useRef();
+  const [appellation, setAppellation] = useState();
+  const [color, setColor] = useState();
+  const [type, setType] = useState();
+  const [year, setYear] = useState();
   const rewardInput = useRef();
 
   const changeFront = (e) => {
@@ -54,15 +57,17 @@ function Login() {
     axios.post(uploadUrl, formData)
       .then((response) => {
         if (response.data.imageFront != null) {
+          console.log(response);
           imageFront = response.data.imageFront.originalname;
         }
         if (response.data.imageBack != null) {
+          console.log(response);
           imageBack = response.data.imageBack.originalname;
         }
         axios.post(bottleUrl, {
-          type: typeInput.current.value,
-          appellation: appellationInput.current.value,
-          year: yearInput.current.value,
+          type,
+          appellation,
+          year,
           reward: rewardInput.current.value,
           frontImg: imageFront,
           backImg: imageBack,
@@ -77,6 +82,7 @@ function Login() {
   return (
     <>
       { link('/logout', 'Déconnexion', 'dcButton') }
+
       <div className="formContainer">
         <h1 className="titleWinary">
           Vinothèque de
@@ -84,22 +90,76 @@ function Login() {
           {loginData.email}
         </h1>
         <div className="bottleForm">
-          <label className="labelBottle" htmlFor="type">Type</label>
-          <input className="inputBottle" ref={typeInput} type="text" id="text" name="text" placeholder="Sec" required />
-          <label className="labelBottle" htmlFor="appellation">Appellation</label>
-          <input className="inputBottle" ref={appellationInput} type="text" id="text" name="text" placeholder="Chinon" required />
-          <label className="labelBottle" htmlFor="year">Millésime</label>
-          <input className="inputBottle" ref={yearInput} type="text" id="text" name="text" placeholder="2005" required />
-          <label className="labelBottle" htmlFor="medal">
-            Récompense/Médaille
-          </label>
-          <select className="inputBottle" ref={rewardInput}>
-            <option value="">--Veuillez choisir une récompense--</option>
-            <option value="Sans Récompense">Sans Récompense</option>
-            <option value="Guide hachette des vins ">Guide Hachette des vins</option>
-            <option value="Concours Agricole Général de Paris">Concours Agricole Général de Paris</option>
-            <option value="Concours des grands vins de Bordeaux">Concours des Grands Vins de Bordeaux</option>
-          </select>
+          {referenceList && (
+            <>
+              <label className="labelBottle" htmlFor="appellation">Appellation</label>
+              <select className="inputBottle" value={appellation} onChange={(event) => setAppellation(event.target.value)}>
+                <option value="">--Veuillez choisir une appellation--</option>
+                {[...new Set(referenceList.map((ref) => ref.appellation))].map(
+                  (appell) => (<option>{appell}</option>),
+                )}
+              </select>
+            </>
+          )}
+
+          {appellation && (
+            <>
+              <label className="labelBottle" htmlFor="type">Couleur</label>
+              <select className="inputBottle" value={color} onChange={(event) => setColor(event.target.value)}>
+                <option value="">--Veuillez choisir une couleur--</option>
+                {referenceList.filter(
+                  (reference) => reference.appellation === appellation,
+                )
+                  .map((ref) => (<option value={`${ref.color}`}>{ref.color}</option>))}
+              </select>
+            </>
+          )}
+
+          {color && (
+            <>
+              <label className="labelBottle" htmlFor="type">Type</label>
+              <select className="inputBottle" onChange={(event) => setType(event.target.value)}>
+                <option value="">--Veuillez choisir un type--</option>
+                {referenceList.filter(
+                  (reference) => reference.appellation === appellation && reference.color === color,
+                )
+                  .map((ref) => (<option value={`${ref.type}`}>{ref.type}</option>))}
+              </select>
+            </>
+          )}
+
+          {type && (
+            <>
+              <label className="labelBottle" htmlFor="year">Millésime</label>
+              <select className="inputBottle" onChange={(event) => setYear(event.target.value)}>
+                <option value="">--Veuillez choisir un millésime--</option>
+                {referenceList.filter(
+                  (reference) => reference.appellation === appellation
+              && reference.color === color
+              && reference.type === type,
+                )
+                  .map((ref) => (<option value={`${ref.year}`}>{ref.year}</option>))}
+              </select>
+            </>
+          )}
+
+          {year && (
+            <>
+              <label className="labelBottle" htmlFor="medal">
+                Récompense/Médaille
+              </label>
+              <select className="inputBottle" ref={rewardInput}>
+                <option value="">--Veuillez choisir une récompense--</option>
+                {referenceList.filter(
+                  (reference) => reference.appellation === appellation
+            && reference.color === color
+            && reference.type === type
+            && reference.year === year,
+                )
+                  .map((ref) => (<option value={`${ref.reward}`}>{ref.reward}</option>))}
+              </select>
+            </>
+          )}
         </div>
         <div className="etiquetteContainer">
           <label className="labelImage" htmlFor="labelRecto">Etiquette</label>
@@ -121,6 +181,13 @@ function Login() {
           </button>
         </div>
       </div>
+      <label htmlFor="bottleCount">
+        Vous possédez
+        {' '}
+        {winary.reduce((acc, bottle) => acc + bottle.quantity, 0)}
+        {' '}
+        bouteilles
+      </label>
       <ShowWinary />
     </>
   );

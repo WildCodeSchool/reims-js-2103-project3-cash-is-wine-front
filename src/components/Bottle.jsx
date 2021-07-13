@@ -57,7 +57,7 @@ function Bottle({ bottle }) {
         {' '}
         {bottle.reward}
         <h1 className="titleQuantity">Quantité :</h1>
-        <input type="number" className="quantity" value={quantity} onChange={(event) => setQuantity(event.target.value)} id="quantity" name="quantity" min="1" />
+        <input type="number" className="quantity" value={quantity} onChange={(event) => setQuantity(parseInt(event.target.value, 10))} id="quantity" name="quantity" min="1" />
         <p className="resultPrice">
           Prix total :
           {' '}
@@ -74,6 +74,17 @@ function Bottle({ bottle }) {
             axios.put(url, {
               quantity,
             });
+            setWinary(
+              winary.map(
+                (bottleInWinary) => (
+                  (
+                    bottleInWinary.id === bottle.id
+                  )
+                    ? { ...bottleInWinary, quantity }
+                    : bottleInWinary
+                ),
+              ),
+            );
           }}
         >
           Sauvegarder
