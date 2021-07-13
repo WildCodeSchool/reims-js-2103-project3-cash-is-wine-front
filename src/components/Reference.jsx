@@ -24,7 +24,8 @@ function Reference({ reference }) {
         <span className="descriptionText"> Appellation :</span>
         {' '}
         <span className="appellation">{reference.appellation}</span>
-        <br />
+        {' '}
+        <p className="reward">{reference.reward}</p>
         <section>
           <span className="descriptionText">Couleur :</span>
           <span className="color">{reference.color}</span>
@@ -52,6 +53,7 @@ Reference.propTypes = {
     id: PropTypes.number.isRequired,
     estate: PropTypes.string.isRequired,
     appellation: PropTypes.string.isRequired,
+    reward: PropTypes.string.isRequired,
     picture: PropTypes.string,
     color: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired,

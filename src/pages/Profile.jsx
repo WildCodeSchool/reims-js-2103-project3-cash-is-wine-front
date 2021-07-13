@@ -95,9 +95,10 @@ function Login() {
           </label>
           <select className="inputBottle" ref={rewardInput}>
             <option value="">--Veuillez choisir une récompense--</option>
-            <option value="Récompense N°1">Récompense N°1</option>
-            <option value="Récompense N°2">Récompense N°2</option>
-            <option value="Récompense N°3">Récompense N°3</option>
+            <option value="Sans Récompense">Sans Récompense</option>
+            <option value="Guide hachette des vins ">Guide Hachette des vins</option>
+            <option value="Concours Agricole Général de Paris">Concours Agricole Général de Paris</option>
+            <option value="Concours des grands vins de Bordeaux">Concours des Grands Vins de Bordeaux</option>
           </select>
         </div>
         <div className="etiquetteContainer">
