@@ -59,7 +59,7 @@ function Form() {
               year: parseInt(yearInput.current.value, 10),
               reward: rewardInput.current.value,
             };
-            const url = `http://localhost:8000/prices?${Object.keys(body).map((key) => `${key}=${body[key]}`).join('&')}`;
+            const url = `${process.env.REACT_APP_API_URL}/prices?${Object.keys(body).map((key) => `${key}=${body[key]}`).join('&')}`;
             axios.get(url)
               .then((response) => {
                 setEstimation(response.data.price / 2);

@@ -24,7 +24,7 @@ function Bottle({ bottle }) {
             type="button"
             className="trash"
             onClick={() => {
-              const url = `http://localhost:8000/users/${loginData.userId}/bottles/${bottle.id}`;
+              const url = `${process.env.REACT_APP_API_URL}/users/${loginData.userId}/bottles/${bottle.id}`;
               axios.delete(url)
                 .then(() => (
                   setWinary(winary.filter((bottleInWinary) => bottleInWinary.id !== bottle.id))
@@ -38,8 +38,8 @@ function Bottle({ bottle }) {
           </button>
         </div>
         <div className="bottleimg">
-          <img className="imgbottle" src={`http://localhost:8000/uploads/${bottle.frontImg}`} alt={`${bottle.id}recto`} />
-          <img className="imgbottle" src={`http://localhost:8000/uploads/${bottle.backImg}`} alt={`${bottle.id}verso`} />
+          <img className="imgbottle" src={`${process.env.REACT_APP_API_URL}/uploads/${bottle.frontImg}`} alt={`${bottle.id}recto`} />
+          <img className="imgbottle" src={`${process.env.REACT_APP_API_URL}/uploads/${bottle.backImg}`} alt={`${bottle.id}verso`} />
         </div>
         <span className="titlesBottles">Type :</span>
         {' '}
@@ -70,7 +70,7 @@ function Bottle({ bottle }) {
           className="saveBtn"
           type="button"
           onClick={() => {
-            const url = `http://localhost:8000/users/${loginData.userId}/bottles/${bottle.id}`;
+            const url = `${process.env.REACT_APP_API_URL}/users/${loginData.userId}/bottles/${bottle.id}`;
             axios.put(url, {
               quantity,
             });

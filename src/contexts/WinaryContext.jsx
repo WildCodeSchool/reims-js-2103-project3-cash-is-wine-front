@@ -12,7 +12,7 @@ function WinaryProvider({ children }) {
 
   React.useEffect(() => {
     if (loginData != null) {
-      const url = `http://localhost:8000/users/${loginData.userId}/bottles`;
+      const url = `${process.env.REACT_APP_API_URL}/users/${loginData.userId}/bottles`;
       axios.get(url)
         .then((response) => (setWinary(response.data)));
     }

@@ -1,12 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import './Reference.css';
 
 function Reference({ reference }) {
   return (
     <div className="bottlesContainer">
       <p className="bottle-description">
-        <img className="imgbottle1" src={`http://localhost:8000/assets/${reference.picture}`} alt={`${reference.id}`} />
+        <div className="Btn-Basket">
+          <button
+            type="button"
+            className="basket"
+            onClick={() => {}}
+          >
+            <FontAwesomeIcon
+              icon={faCartPlus}
+              size="lg"
+            />
+          </button>
+        </div>
+        <img className="imgbottle1" src={`${process.env.REACT_APP_API_URL}/assets/${reference.picture}`} alt={`${reference.id}`} />
         <span className="descriptionText"> Appellation :</span>
         {' '}
         <span className="appellation">{reference.appellation}</span>

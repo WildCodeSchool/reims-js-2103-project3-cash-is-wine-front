@@ -6,7 +6,7 @@ const ReferenceListContext = createContext();
 
 function ReferenceListProvider({ children }) {
   const [referenceList, setReferenceList] = useState([]);
-  const url = 'http://localhost:8000/references';
+  const url = `${process.env.REACT_APP_API_URL}/references`;
   React.useEffect(() => {
     axios.get(url)
       .then((response) => (setReferenceList(response.data)));
