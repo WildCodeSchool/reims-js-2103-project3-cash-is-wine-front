@@ -47,6 +47,11 @@
     text-transform: uppercase;
 }
 
+.reward {
+    color: rgb(92, 84, 84);
+    font-weight: bold;
+}
+
 .color {
     text-transform: uppercase;
     font-size: 1.3rem;
@@ -56,10 +61,10 @@
     font-size: 1.2rem;
 }
 
-.imgbottle1:hover{
-    opacity: 0.5;
-    content: "acheter";
+.imgbottle1:hover {
+    transform: scale(3);
 }
+
 .priceBottles {
         color: #ce2d6d;
         font-weight: 800;
