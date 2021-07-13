@@ -47,6 +47,11 @@
     text-transform: uppercase;
 }
 
+.precision  {
+    color: rgb(92, 84, 84);
+    font-weight: bold;
+}
+
 .reward {
     color: rgb(92, 84, 84);
     font-weight: bold;

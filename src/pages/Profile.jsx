@@ -53,6 +53,9 @@ function Login() {
     const bottleUrl = `${process.env.REACT_APP_API_URL}/users/${loginData.userId}/bottles`;
     axios.post(uploadUrl, formData)
       .then((response) => {
+        if (response.status === 500) {
+          alert('hello');
+        }
         if (response.data.imageFront != null) {
           imageFront = response.data.imageFront.originalname;
         }
