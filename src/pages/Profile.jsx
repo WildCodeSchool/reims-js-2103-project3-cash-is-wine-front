@@ -157,7 +157,7 @@ function Login() {
                   (reference) => reference.appellation === appellation
             && reference.color === color
             && reference.type === type
-            && reference.year === year,
+            && reference.year === parseInt(year, 10),
                 )
                   .map((ref) => (<option value={`${ref.reward}`}>{ref.reward}</option>))}
               </select>
