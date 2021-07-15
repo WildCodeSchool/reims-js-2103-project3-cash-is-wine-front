@@ -18,7 +18,7 @@ const toastConfig = {
 function Reference({ reference }) {
   return (
     <div className="bottlesContainer">
-      <p className="bottle-description">
+      <div className="bottle-description">
         <div className="Btn-Basket">
           <button
             type="button"
@@ -69,7 +69,7 @@ function Reference({ reference }) {
             €
           </span>
         </section>
-      </p>
+      </div>
     </div>
   );
 }
@@ -77,7 +77,6 @@ function Reference({ reference }) {
 Reference.propTypes = {
   reference: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    estate: PropTypes.string.isRequired,
     appellation: PropTypes.string.isRequired,
     precision: PropTypes.string.isRequired,
     reward: PropTypes.string.isRequired,

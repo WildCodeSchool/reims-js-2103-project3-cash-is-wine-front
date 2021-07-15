@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Redirect, NavLink } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 import ShowWinary from '../components/ShowWinary';
 import { useLoginData } from '../contexts/LoginDataContext';
 import { useWinary } from '../contexts/WinaryContext';
@@ -20,6 +21,16 @@ const link = (path, text, dcButton) => (
     </NavLink>
   </div>
 );
+
+const toastConfig = {
+  position: 'top-center',
+  autoClose: 4000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+};
 
 function Login() {
   const { loginData } = useLoginData();
@@ -63,12 +74,15 @@ function Login() {
     const bottleUrl = `${process.env.REACT_APP_API_URL}/users/${loginData.userId}/bottles`;
     axios.post(uploadUrl, formData)
       .then((response) => {
-        if (response.data.imageFront != null) {
-          alert(response.data.error);
+        if (response.data.imageFront != null && response.data.imageBack != null) {
           imageFront = response.data.imageFront.originalname;
-        }
-        if (response.data.imageBack != null) {
-          alert(response.data.error);
+          imageBack = response.data.imageBack.originalname;
+          toast.success('La bouteille a été ajoutée avec succés', toastConfig);
+        } else if (response.data.imageFront != null) {
+          toast.warning(response.data.error, toastConfig);
+          imageFront = response.data.imageFront.originalname;
+        } else if (response.data.imageBack != null) {
+          toast.warning(response.data.error, toastConfig);
           imageBack = response.data.imageBack.originalname;
         }
         axios.post(bottleUrl, {
@@ -86,7 +100,7 @@ function Login() {
       })
       .catch((err) => {
         if (err.response.status === 400) {
-          alert('Impossible d\'ajouter la bouteille. Les deux images sont trop volumineuses !!');
+          toast.error('Impossible d\'ajouter la bouteille. Les deux images sont trop volumineuses.', toastConfig);
         }
       });
   };
@@ -180,7 +194,7 @@ function Login() {
           <label className="labelImage" htmlFor="labelRecto">Etiquette</label>
           <input className="inputImage" type="file" id="labelRecto" name="fileFront" placeholder="Ajoutez votre image" onChange={changeFront} />
           <div className="divtruc">
-            <label className="labelImage" htmlFor="labelVerso">Contre etiquette</label>
+            <label className="labelImage" htmlFor="labelVerso">Contre-etiquette</label>
             <input className="inputImage" type="file" id="labelVerso" name="fileBack" placeholder="Ajoutez votre image" onChange={changeBack} />
           </div>
         </div>
@@ -194,6 +208,19 @@ function Login() {
           >
             Ajouter à la vinothèque
           </button>
+          <ToastContainer
+            position="top-center"
+            autoClose={4000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+          {/* Same as */}
+          <ToastContainer />
         </div>
       </div>
       <section className="bottleCountContainer" htmlFor="bottleCount">

@@ -12,6 +12,13 @@ function Navbar() {
     <nav className="navBar">
       {loginData == null ? (
         <>
+          <button
+            className="ButtonPanier"
+            type="button"
+            onClick={() => {}}
+          >
+            Panier
+          </button>
           {link('/login', 'Se connecter')}
           {link('/register', 'Créer un compte')}
         </>
