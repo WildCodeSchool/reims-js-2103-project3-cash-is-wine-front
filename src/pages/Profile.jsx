@@ -184,13 +184,16 @@ function Login() {
           </button>
         </div>
       </div>
-      <label htmlFor="bottleCount">
-        Vous possédez
-        {' '}
-        {winary.reduce((acc, bottle) => acc + bottle.quantity, 0)}
-        {' '}
-        bouteilles
-      </label>
+      <section className="bottleCountContainer" htmlFor="bottleCount">
+        <h1 className="bottleCount">
+          {' '}
+          Vous possédez
+          {'  '}
+          {winary.reduce((acc, bottle) => acc + bottle.quantity, 0)}
+          {'  '}
+          bouteilles
+        </h1>
+      </section>
       <ShowWinary />
     </>
   );

@@ -84,7 +84,7 @@
 @media (max-width: 780px) {
     .referenceBottles {
         display: grid;
-        grid-template-columns: 80%;
+        grid-template-columns: 45% 45%;
         justify-content: center;
         align-content: center;
         gap: 1rem;
@@ -94,5 +94,7 @@
         align-self: center;
         margin-top: 1rem;
     }
-    
+    .inputImage {
+        width: 75%;
+    }
 }
