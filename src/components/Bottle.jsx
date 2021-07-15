@@ -55,7 +55,6 @@ function Bottle({ bottle }) {
         <br />
         <span className="titlesBottles">Récompense :</span>
         {' '}
-        {bottle.reward}
         <h1 className="titleQuantity">Quantité :</h1>
         <input type="number" className="quantity" value={quantity} onChange={(event) => setQuantity(parseInt(event.target.value, 10))} id="quantity" name="quantity" min="1" />
         <p className="resultPrice">
@@ -65,7 +64,6 @@ function Bottle({ bottle }) {
           {' '}
           €
         </p>
-
         <button
           className="saveBtn"
           type="button"
@@ -89,7 +87,12 @@ function Bottle({ bottle }) {
         >
           Sauvegarder
         </button>
+<<<<<<< Updated upstream
       </p>
+=======
+        <p className="reward" id="reward">{bottle.reward}</p>
+      </div>
+>>>>>>> Stashed changes
     </div>
   );
 }
