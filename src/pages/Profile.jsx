@@ -194,7 +194,7 @@ function Login() {
           <label className="labelImage" htmlFor="labelRecto">Etiquette</label>
           <input className="inputImage" type="file" id="labelRecto" name="fileFront" placeholder="Ajoutez votre image" onChange={changeFront} />
           <div className="divtruc">
-            <label className="labelImage" htmlFor="labelVerso">Contre etiquette</label>
+            <label className="labelImage" htmlFor="labelVerso">Contre-etiquette</label>
             <input className="inputImage" type="file" id="labelVerso" name="fileBack" placeholder="Ajoutez votre image" onChange={changeBack} />
           </div>
         </div>
