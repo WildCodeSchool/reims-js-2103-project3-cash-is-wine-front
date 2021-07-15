@@ -22,29 +22,34 @@ function Login() {
   return (
     <div className="box2">
       {link('/', 'Accueil')}
-      <div className="child2">
-        <img className="cashiswineImg" src={logoCash} alt="logo" />
-        <label className="labelLogin" htmlFor="email">Email</label>
-        <input className="inputName" ref={usernameInput} type="email" id="email" name="email" placeholder="cashinwine@mail.com" />
-        <label className="labelPassword" htmlFor="email">Mot de passe</label>
-        <input className="inputPassword" ref={passwordInput} type="password" id="password" name="password" />
-        <button
-          className="ButtonLogin"
-          type="button"
-          onClick={() => {
-            const url = `${process.env.REACT_APP_API_URL}/login`;
-            axios.post(url, {
-              email: usernameInput.current.value,
-              password: passwordInput.current.value,
-            })
-              .then((response) => {
-                setLoginData(response.data);
-              });
-          }}
-        >
-          Connexion
-        </button>
-      </div>
+      <form
+        className="child2"
+        onSubmit={(event) => {
+          event.preventDefault();
+          const url = `${process.env.REACT_APP_API_URL}/login`;
+          axios.post(url, {
+            email: usernameInput.current.value,
+            password: passwordInput.current.value,
+          })
+            .then((response) => {
+              setLoginData(response.data);
+            });
+        }}
+      >
+        <>
+          <img className="cashiswineImg" src={logoCash} alt="logo" />
+          <label className="labelLogin" htmlFor="email">Email</label>
+          <input className="inputName" ref={usernameInput} type="email" id="email" name="email" placeholder="cashinwine@mail.com" />
+          <label className="labelPassword" htmlFor="email">Mot de passe</label>
+          <input className="inputPassword" ref={passwordInput} type="password" id="password" name="password" />
+          <button
+            className="ButtonLogin"
+            type="submit"
+          >
+            Connexion
+          </button>
+        </>
+      </form>
     </div>
   );
 }

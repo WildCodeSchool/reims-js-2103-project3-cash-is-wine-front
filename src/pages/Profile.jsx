@@ -63,15 +63,12 @@ function Login() {
     const bottleUrl = `${process.env.REACT_APP_API_URL}/users/${loginData.userId}/bottles`;
     axios.post(uploadUrl, formData)
       .then((response) => {
-        if (response.status === 500) {
-          alert('hello');
-        }
         if (response.data.imageFront != null) {
-          console.log(response);
+          alert(response.data.error);
           imageFront = response.data.imageFront.originalname;
         }
         if (response.data.imageBack != null) {
-          console.log(response);
+          alert(response.data.error);
           imageBack = response.data.imageBack.originalname;
         }
         axios.post(bottleUrl, {
@@ -86,6 +83,11 @@ function Login() {
           .then((res) => {
             setWinary((previousWinary) => ([res.data, ...previousWinary]));
           });
+      })
+      .catch((err) => {
+        if (err.response.status === 400) {
+          alert('Impossible d\'ajouter la bouteille. Les deux images sont trop volumineuses !!');
+        }
       });
   };
 
