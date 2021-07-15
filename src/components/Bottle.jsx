@@ -18,7 +18,7 @@ function Bottle({ bottle }) {
 
   return (
     <div className="bottlesVinotheque">
-      <p className="descriptionBottles">
+      <div className="descriptionBottles">
         <div className="Btn-Trash">
           <button
             type="button"
@@ -87,12 +87,8 @@ function Bottle({ bottle }) {
         >
           Sauvegarder
         </button>
-<<<<<<< Updated upstream
-      </p>
-=======
         <p className="reward" id="reward">{bottle.reward}</p>
-      </div>
->>>>>>> Stashed changes
+      </div
     </div>
   );
 }

@@ -1,11 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Redirect, NavLink } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 import ShowWinary from '../components/ShowWinary';
 import { useLoginData } from '../contexts/LoginDataContext';
 import { useWinary } from '../contexts/WinaryContext';
 import { useReferenceList } from '../contexts/ReferenceListContext';
 import './Profile.css';
+import Logocash from './assets/logocash.png';
 
 const link = (path, text, dcButton) => (
   <div className="closeButton">
@@ -19,6 +21,16 @@ const link = (path, text, dcButton) => (
     </NavLink>
   </div>
 );
+
+const toastConfig = {
+  position: 'top-center',
+  autoClose: 4000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+};
 
 function Login() {
   const { loginData } = useLoginData();
@@ -38,6 +50,12 @@ function Login() {
   const [year, setYear] = useState();
   const rewardInput = useRef();
 
+  useEffect(() => {
+    setColor();
+    setType();
+    setYear();
+  }, [appellation]);
+
   const changeFront = (e) => {
     setBottleFrontFile(e.target.files[0]);
   };
@@ -56,15 +74,15 @@ function Login() {
     const bottleUrl = `${process.env.REACT_APP_API_URL}/users/${loginData.userId}/bottles`;
     axios.post(uploadUrl, formData)
       .then((response) => {
-        if (response.status === 500) {
-          alert('hello');
-        }
-        if (response.data.imageFront != null) {
-          console.log(response);
+        if (response.data.imageFront != null && response.data.imageBack != null) {
           imageFront = response.data.imageFront.originalname;
-        }
-        if (response.data.imageBack != null) {
-          console.log(response);
+          imageBack = response.data.imageBack.originalname;
+          toast.success('La bouteille a été ajoutée avec succés', toastConfig);
+        } else if (response.data.imageFront != null) {
+          toast.warning(response.data.error, toastConfig);
+          imageFront = response.data.imageFront.originalname;
+        } else if (response.data.imageBack != null) {
+          toast.warning(response.data.error, toastConfig);
           imageBack = response.data.imageBack.originalname;
         }
         axios.post(bottleUrl, {
@@ -79,13 +97,20 @@ function Login() {
           .then((res) => {
             setWinary((previousWinary) => ([res.data, ...previousWinary]));
           });
+      })
+      .catch((err) => {
+        if (err.response.status === 400) {
+          toast.error('Impossible d\'ajouter la bouteille. Les deux images sont trop volumineuses.', toastConfig);
+        }
       });
   };
 
   return (
     <>
       { link('/logout', 'Déconnexion', 'dcButton') }
-
+      <div className="logo">
+        <a href="http://localhost:3000/"><img className="logocashprofile" src={Logocash} alt="logo" /></a>
+      </div>
       <div className="formContainer">
         <h1 className="titleWinary">
           Vinothèque de
@@ -110,10 +135,10 @@ function Login() {
               <label className="labelBottle" htmlFor="type">Couleur</label>
               <select className="inputBottle" value={color} onChange={(event) => setColor(event.target.value)}>
                 <option value="">--Veuillez choisir une couleur--</option>
-                {referenceList.filter(
-                  (reference) => reference.appellation === appellation,
-                )
-                  .map((ref) => (<option value={`${ref.color}`}>{ref.color}</option>))}
+                {[...new Set(referenceList
+                  .filter((reference) => reference.appellation === appellation)
+                  .map((ref) => ref.color))]
+                  .map((oneColor) => (<option>{oneColor}</option>))}
               </select>
             </>
           )}
@@ -123,10 +148,11 @@ function Login() {
               <label className="labelBottle" htmlFor="type">Type</label>
               <select className="inputBottle" onChange={(event) => setType(event.target.value)}>
                 <option value="">--Veuillez choisir un type--</option>
-                {referenceList.filter(
-                  (reference) => reference.appellation === appellation && reference.color === color,
-                )
-                  .map((ref) => (<option value={`${ref.type}`}>{ref.type}</option>))}
+                {[...new Set(referenceList
+                  .filter((reference) => reference.appellation === appellation
+                  && reference.color === color)
+                  .map((ref) => ref.type))]
+                  .map((onetype) => (<option>{onetype}</option>))}
               </select>
             </>
           )}
@@ -136,12 +162,12 @@ function Login() {
               <label className="labelBottle" htmlFor="year">Millésime</label>
               <select className="inputBottle" onChange={(event) => setYear(event.target.value)}>
                 <option value="">--Veuillez choisir un millésime--</option>
-                {referenceList.filter(
-                  (reference) => reference.appellation === appellation
-              && reference.color === color
-              && reference.type === type,
-                )
-                  .map((ref) => (<option value={`${ref.year}`}>{ref.year}</option>))}
+                {[...new Set(referenceList
+                  .filter((reference) => reference.appellation === appellation
+                  && reference.color === color
+                  && reference.type === type)
+                  .map((ref) => ref.year))]
+                  .map((oneYear) => (<option>{oneYear}</option>))}
               </select>
             </>
           )}
@@ -155,11 +181,11 @@ function Login() {
                 <option value="">--Veuillez choisir une récompense--</option>
                 {referenceList.filter(
                   (reference) => reference.appellation === appellation
-            && reference.color === color
-            && reference.type === type
-            && reference.year === year,
+                  && reference.color === color
+                  && reference.type === type
+                  && reference.year === parseInt(year, 10),
                 )
-                  .map((ref) => (<option value={`${ref.reward}`}>{ref.reward}</option>))}
+                  .map((ref) => (<option>{ref.reward}</option>))}
               </select>
             </>
           )}
@@ -168,7 +194,7 @@ function Login() {
           <label className="labelImage" htmlFor="labelRecto">Etiquette</label>
           <input className="inputImage" type="file" id="labelRecto" name="fileFront" placeholder="Ajoutez votre image" onChange={changeFront} />
           <div className="divtruc">
-            <label className="labelImage" htmlFor="labelVerso">Contre etiquette</label>
+            <label className="labelImage" htmlFor="labelVerso">Contre-etiquette</label>
             <input className="inputImage" type="file" id="labelVerso" name="fileBack" placeholder="Ajoutez votre image" onChange={changeBack} />
           </div>
         </div>
@@ -182,15 +208,31 @@ function Login() {
           >
             Ajouter à la vinothèque
           </button>
+          <ToastContainer
+            position="top-center"
+            autoClose={4000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+          {/* Same as */}
+          <ToastContainer />
         </div>
       </div>
-      <label htmlFor="bottleCount">
-        Vous possédez
-        {' '}
-        {winary.reduce((acc, bottle) => acc + bottle.quantity, 0)}
-        {' '}
-        bouteilles
-      </label>
+      <section className="bottleCountContainer" htmlFor="bottleCount">
+        <h1 className="bottleCount">
+          {' '}
+          Vous possédez
+          {'  '}
+          {winary.reduce((acc, bottle) => acc + bottle.quantity, 0)}
+          {'  '}
+          bouteilles
+        </h1>
+      </section>
       <ShowWinary />
     </>
   );
