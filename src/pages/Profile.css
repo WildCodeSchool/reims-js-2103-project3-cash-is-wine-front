@@ -10,6 +10,25 @@
     margin-bottom: 3rem;
 }
 
+.bottleCountContainer {
+    border: thick double #c49e34;
+    width: 30%;
+    margin: auto;
+    justify-content: center;
+    border-radius: 5%;
+}
+
+.bottleCount {
+    text-align: center;
+    font-size: 1.8rem;
+    background-color: rgba(92, 35, 35, 0.37);
+
+}
+
+.numberCount {
+    color: rgb(255, 0, 0);
+}
+
 .bottleForm {
     display: grid;
     text-align: center;
@@ -267,4 +286,11 @@
         font-size: 1rem;
         text-align: center;
     }
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.logocashprofile {
+    height: 15vh;
 }
