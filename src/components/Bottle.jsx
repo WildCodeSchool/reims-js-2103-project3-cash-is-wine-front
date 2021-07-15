@@ -18,7 +18,7 @@ function Bottle({ bottle }) {
 
   return (
     <div className="bottlesVinotheque">
-      <p className="descriptionBottles">
+      <div className="descriptionBottles">
         <div className="Btn-Trash">
           <button
             type="button"
@@ -89,7 +89,7 @@ function Bottle({ bottle }) {
         >
           Sauvegarder
         </button>
-      </p>
+      </div>
     </div>
   );
 }
