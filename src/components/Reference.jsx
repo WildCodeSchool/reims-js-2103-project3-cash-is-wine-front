@@ -12,7 +12,8 @@ function Reference({ reference }) {
           <button
             type="button"
             className="basket"
-            onClick={() => {}}
+            onClick={() => {
+            }}
           >
             <FontAwesomeIcon
               icon={faCartPlus}
