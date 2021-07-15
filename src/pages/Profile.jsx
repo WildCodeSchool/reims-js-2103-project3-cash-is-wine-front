@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Redirect, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import ShowWinary from '../components/ShowWinary';
@@ -37,6 +37,12 @@ function Login() {
   const [type, setType] = useState();
   const [year, setYear] = useState();
   const rewardInput = useRef();
+
+  useEffect(() => {
+    setColor();
+    setType();
+    setYear();
+  }, [appellation]);
 
   const changeFront = (e) => {
     setBottleFrontFile(e.target.files[0]);
@@ -110,10 +116,10 @@ function Login() {
               <label className="labelBottle" htmlFor="type">Couleur</label>
               <select className="inputBottle" value={color} onChange={(event) => setColor(event.target.value)}>
                 <option value="">--Veuillez choisir une couleur--</option>
-                {referenceList.filter(
-                  (reference) => reference.appellation === appellation,
-                )
-                  .map((ref) => (<option value={`${ref.color}`}>{ref.color}</option>))}
+                {[...new Set(referenceList
+                  .filter((reference) => reference.appellation === appellation)
+                  .map((ref) => ref.color))]
+                  .map((oneColor) => (<option>{oneColor}</option>))}
               </select>
             </>
           )}
@@ -123,10 +129,11 @@ function Login() {
               <label className="labelBottle" htmlFor="type">Type</label>
               <select className="inputBottle" onChange={(event) => setType(event.target.value)}>
                 <option value="">--Veuillez choisir un type--</option>
-                {referenceList.filter(
-                  (reference) => reference.appellation === appellation && reference.color === color,
-                )
-                  .map((ref) => (<option value={`${ref.type}`}>{ref.type}</option>))}
+                {[...new Set(referenceList
+                  .filter((reference) => reference.appellation === appellation
+                  && reference.color === color)
+                  .map((ref) => ref.type))]
+                  .map((onetype) => (<option>{onetype}</option>))}
               </select>
             </>
           )}
@@ -136,12 +143,12 @@ function Login() {
               <label className="labelBottle" htmlFor="year">Millésime</label>
               <select className="inputBottle" onChange={(event) => setYear(event.target.value)}>
                 <option value="">--Veuillez choisir un millésime--</option>
-                {referenceList.filter(
-                  (reference) => reference.appellation === appellation
-              && reference.color === color
-              && reference.type === type,
-                )
-                  .map((ref) => (<option value={`${ref.year}`}>{ref.year}</option>))}
+                {[...new Set(referenceList
+                  .filter((reference) => reference.appellation === appellation
+                  && reference.color === color
+                  && reference.type === type)
+                  .map((ref) => ref.year))]
+                  .map((oneYear) => (<option>{oneYear}</option>))}
               </select>
             </>
           )}
@@ -155,11 +162,11 @@ function Login() {
                 <option value="">--Veuillez choisir une récompense--</option>
                 {referenceList.filter(
                   (reference) => reference.appellation === appellation
-            && reference.color === color
-            && reference.type === type
-            && reference.year === year,
+                  && reference.color === color
+                  && reference.type === type
+                  && reference.year === parseInt(year, 10),
                 )
-                  .map((ref) => (<option value={`${ref.reward}`}>{ref.reward}</option>))}
+                  .map((ref) => (<option>{ref.reward}</option>))}
               </select>
             </>
           )}
