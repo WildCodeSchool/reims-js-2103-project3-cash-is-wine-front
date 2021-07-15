@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Redirect, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import ShowWinary from '../components/ShowWinary';
@@ -37,6 +37,12 @@ function Login() {
   const [type, setType] = useState();
   const [year, setYear] = useState();
   const rewardInput = useRef();
+
+  useEffect(() => {
+    setColor();
+    setType();
+    setYear();
+  }, [appellation]);
 
   const changeFront = (e) => {
     setBottleFrontFile(e.target.files[0]);
