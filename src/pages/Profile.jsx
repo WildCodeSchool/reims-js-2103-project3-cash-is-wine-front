@@ -6,6 +6,7 @@ import { useLoginData } from '../contexts/LoginDataContext';
 import { useWinary } from '../contexts/WinaryContext';
 import { useReferenceList } from '../contexts/ReferenceListContext';
 import './Profile.css';
+import Logocash from './assets/logocash.png';
 
 const link = (path, text, dcButton) => (
   <div className="closeButton">
@@ -91,7 +92,9 @@ function Login() {
   return (
     <>
       { link('/logout', 'Déconnexion', 'dcButton') }
-
+      <div className="logo">
+        <a href="http://localhost:3000/"><img className="logocashprofile" src={Logocash} alt="logo" /></a>
+      </div>
       <div className="formContainer">
         <h1 className="titleWinary">
           Vinothèque de

@@ -268,3 +268,10 @@
         text-align: center;
     }
 }
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.logocashprofile {
+    height: 15vh;
+}
