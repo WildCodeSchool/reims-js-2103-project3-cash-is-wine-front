@@ -221,7 +221,7 @@ function Login() {
           {'  '}
           {winary.reduce((acc, bottle) => acc + bottle.quantity, 0)}
           {'  '}
-          bouteilles
+          bouteille(s)
         </h1>
       </section>
       <ShowWinary />
