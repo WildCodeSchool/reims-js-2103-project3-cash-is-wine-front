@@ -3,7 +3,6 @@
     margin:0;
     padding:0;
 }
-
 h1 {
     text-align: center;
     display: flex;
@@ -16,7 +15,6 @@ h2 {
     text-align: center;
     margin: 1rem;
 }
-
 .mainh1{
     display: flex;
     margin: auto;
@@ -44,13 +42,10 @@ h2 {
 .link:hover {
     color: #c49e34;
 }
-
-
 .closeButton {
     display: flex;
     justify-content: flex-end;
 }
-
 ::placeholder{
     font-weight: lighter;
     opacity: 40%;
@@ -69,7 +64,6 @@ h2 {
     font-size: 2rem;
     font-weight: bold;
     padding:1rem;
-
 }
 .Bottleprice {
     display: flex;
@@ -91,15 +85,13 @@ h2 {
         gap: 0px 0px;
         grid-auto-flow: row;
         grid-template-areas:
-          ". . cashiswineImgHome navBar navBar";
+        ". . cashiswineImgHome navBar navBar";
     }
-      
     .navBar { 
         margin-top:1rem;
         grid-area: navBar; 
         justify-self: flex-end;
     }
-      
     .cashiswineImgHome {
         justify-self: center;
         height: 25vh;
@@ -135,7 +127,6 @@ h2 {
         justify-content: center;
         margin-bottom: 1rem;
     }
-
     .ButtonPanier {
         font-family: 'Spectral', serif;
         padding: 5rem;
@@ -192,7 +183,6 @@ h2 {
     .link{
         font-weight: bold;
     }
-
     h2 {
         display: none;
     }
@@ -220,13 +210,11 @@ h2 {
         font-size: 1rem;
         font-weight: bold;
         padding:0.5rem;
-    
     }
     .Bottleprice {
         display: flex;
         justify-content: center;
     }
-
     .ButtonPanier {
         font-family: 'Spectral', serif;
         font-weight: bold;

@@ -10,6 +10,26 @@
     margin-bottom: 3rem;
 }
 
+.logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.linkHome {
+    background-color: white;
+}
+
+.logocashprofile {
+    height: 20vh;
+    background-color: white;
+}
+.buttonProfile{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
 .bottleCountContainer {
     border: thick double #c49e34;
     width: 30%;
@@ -73,12 +93,15 @@
 
 .btnContainer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .etiquetteContainer {
     text-align: center;
 }
-
+.decoBtn {
+    display: flex;
+    justify-content: right;
+}
 .btnBottle {
     font-weight: bold;
     font-size: 1.50rem;
@@ -126,7 +149,7 @@
     text-align: center;
 }
 
- .bottleimg {
+.bottleimg {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -144,7 +167,7 @@
 
 .imgbottle:active
 {
-   transform: scale(5);
+    transform: scale(5);
 }
 
 .quantity {
@@ -201,6 +224,14 @@
     .estimateTitle {
         font-size: 0.9rem;
         font-weight: bold;
+    }
+    .bottleCountContainer {
+        width: 70%;
+        
+    }
+    .bottleCount {
+        font-size: 1.3rem;
+        padding: 0.2rem;
     }
     .inputBottle {
         font-size:0.8rem;
@@ -283,6 +314,10 @@
         text-align: center;
         margin-top: 0.5rem;
     }
+    .decoBtn {
+        display: flex;
+        justify-content: center;
+    }
     .prices {
         color: rgb(92, 35, 35);
         font-size: 1.3rem;
@@ -291,11 +326,4 @@
         font-size: 1rem;
         text-align: center;
     }
-}
-.logo{
-    display: flex;
-    justify-content: center;
-}
-.logocashprofile {
-    height: 15vh;
 }

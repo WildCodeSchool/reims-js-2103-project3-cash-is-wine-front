@@ -12,6 +12,11 @@ function Navbar() {
     <nav className="navBar">
       {loginData == null ? (
         <>
+          {link('/login', 'Se connecter')}
+          {link('/register', 'Créer un compte')}
+        </>
+      ) : (
+        <>
           <button
             className="ButtonPanier"
             type="button"
@@ -19,11 +24,6 @@ function Navbar() {
           >
             Panier
           </button>
-          {link('/login', 'Se connecter')}
-          {link('/register', 'Créer un compte')}
-        </>
-      ) : (
-        <>
           {link('/profile', 'Mon compte')}
           {link('/logout', 'Déconnexion')}
         </>

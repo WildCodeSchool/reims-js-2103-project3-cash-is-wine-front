@@ -9,18 +9,7 @@ import { useReferenceList } from '../contexts/ReferenceListContext';
 import './Profile.css';
 import Logocash from './assets/logocash.png';
 
-const link = (path, text, dcButton) => (
-  <div className="closeButton">
-    <NavLink
-      to={path}
-      exact
-      activeClassName="active"
-      className={dcButton ?? 'link'}
-    >
-      {text}
-    </NavLink>
-  </div>
-);
+const link = (path, text) => <NavLink to={path} exact activeClassName="active" className="link">{text}</NavLink>;
 
 const toastConfig = {
   position: 'top-center',
@@ -107,9 +96,11 @@ function Login() {
 
   return (
     <>
-      { link('/logout', 'Déconnexion', 'dcButton') }
+      <div className="navBar" />
+      <section className="decoBtn">{ link('/logout', 'Déconnexion', 'dcButton') }</section>
       <div className="logo">
-        <a href="http://localhost:3000/"><img className="logocashprofile" src={Logocash} alt="logo" /></a>
+        <NavLink to="/" exact activeClassName="active" className="linkHome"><img className="logocashprofile" src={Logocash} alt="logo" /></NavLink>
+        {/* <a href="http://localhost:3000/"> */}
       </div>
       <div className="formContainer">
         <h1 className="titleWinary">
