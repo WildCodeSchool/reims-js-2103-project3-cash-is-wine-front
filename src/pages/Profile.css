@@ -91,10 +91,16 @@
     font-style: italic;
 }
 
+.btnEstimateContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .btnContainer {
     display: flex;
     justify-content: center;
 }
+
 .etiquetteContainer {
     text-align: center;
 }
