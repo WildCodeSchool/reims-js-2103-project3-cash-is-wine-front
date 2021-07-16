@@ -70,14 +70,24 @@ h2 {
     justify-content: center;
 }
 
+body {
+    font-family: 'Spectral', serif;
+}
+
+body::before {
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("./assets/bgresponsive.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    position: fixed;
+}
+
 @media (min-width : 780px) {
-    body {
-        font-family: 'Spectral', serif;
-        background-image: url("./assets/bgwine.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        z-index: 0;
-    }
     .container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -116,7 +126,6 @@ h2 {
     }
     .backgroundh1 {
         background-color: white;
-        max-height: 25vh;
         margin-left: 4rem;
         border-radius: 4px;
         opacity: 90%;
@@ -141,13 +150,6 @@ h2 {
 }
 
 @media (max-width : 780px) {
-    body {
-        font-family: 'Spectral', serif;
-        background-image: url("./assets/bgresponsive.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        z-index: 0;
-    }
     .background {
         display: flex;
         flex-direction: column-reverse;

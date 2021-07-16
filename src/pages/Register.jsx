@@ -25,67 +25,67 @@ function Register() {
   const history = useHistory();
 
   return (
-    <form onSubmit={(event) => {
-      event.preventDefault();
-      if (
-        emailInput.current.value !== ''
-        && passwordInput.current.value !== ''
-        && confirmPasswordInput.current.value !== ''
-        && passwordInput.current.value === confirmPasswordInput.current.value
-      ) {
-        // setRegister('Vous êtes inscrit avec succès');
-        toast.success('Vous êtes inscrit avec succès et vous allez être redirigé...', { ...toastConfig, onClose: () => history.push('/login') });
-      } else {
-        // setRegister('Veuillez vérifier votre email ou mot de passe');
-        toast.error('Veuillez vérifier votre email ou mot de passe', toastConfig);
-      }
+    <form
+      className="box1"
+      onSubmit={(event) => {
+        event.preventDefault();
+        if (
+          emailInput.current.value !== ''
+          && passwordInput.current.value !== ''
+          && confirmPasswordInput.current.value !== ''
+          && passwordInput.current.value === confirmPasswordInput.current.value
+        ) {
+          // setRegister('Vous êtes inscrit avec succès');
+          toast.success('Vous êtes inscrit avec succès et vous allez être redirigé...', { ...toastConfig, onClose: () => history.push('/login') });
+        } else {
+          // setRegister('Veuillez vérifier votre email ou mot de passe');
+          toast.error('Veuillez vérifier votre email ou mot de passe', toastConfig);
+        }
 
-      const user = {
-        email: emailInput.current.value,
-        password: passwordInput.current.value,
-        confirmPassword: confirmPasswordInput.current.value,
-      };
+        const user = {
+          email: emailInput.current.value,
+          password: passwordInput.current.value,
+          confirmPassword: confirmPasswordInput.current.value,
+        };
 
-      const config = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user),
-      };
-      fetch(`${process.env.REACT_APP_API_URL}/users`, config).then((res) => res.json()).then((data) => {
-        console.log(data);
-      });
-    }}
+        const config = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(user),
+        };
+        fetch(`${process.env.REACT_APP_API_URL}/users`, config).then((res) => res.json()).then((data) => {
+          console.log(data);
+        });
+      }}
     >
-      <div className="box1">
-        {link('/', 'Accueil')}
-        <div className="child">
-          <img className="cashiswineImg" src={logoCash} alt="logo" />
-          <label className="labelRegister" htmlFor="email">Email</label>
-          <input className="inputs" ref={emailInput} type="email" id="email" name="email" placeholder="cashinwine@mail.com" />
-          <label className="labelmdp" htmlFor="password">Mot de passe</label>
-          <input className="inputs" ref={passwordInput} type="password" id="password" name="password" />
-          <label className="labelmdp" htmlFor="password">Confirmer votre mot de passe</label>
-          <input className="inputs" ref={confirmPasswordInput} type="password" id="password" name="password" />
-          <div>
-            <button className="button1" type="submit">
-              S&apos;enregistrer
-            </button>
-            <ToastContainer
-              position="top-right"
-              autoClose={3000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-            {/* Same as */}
-            <ToastContainer />
-          </div>
+      {link('/', 'Accueil')}
+      <div className="child">
+        <img className="cashiswineImg" src={logoCash} alt="logo" />
+        <label className="labelRegister" htmlFor="email">Email</label>
+        <input className="inputs" ref={emailInput} type="email" id="email" name="email" placeholder="cashinwine@mail.com" />
+        <label className="labelmdp" htmlFor="password">Mot de passe</label>
+        <input className="inputs" ref={passwordInput} type="password" id="password" name="password" />
+        <label className="labelmdp" htmlFor="password">Confirmer votre mot de passe</label>
+        <input className="inputs" ref={confirmPasswordInput} type="password" id="password" name="password" />
+        <div>
+          <button className="button1" type="submit">
+            S&apos;enregistrer
+          </button>
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+          {/* Same as */}
+          <ToastContainer />
         </div>
       </div>
     </form>
