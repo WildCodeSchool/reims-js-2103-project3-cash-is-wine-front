@@ -88,7 +88,7 @@ function Bottle({ bottle }) {
           Sauvegarder
         </button>
         <p className="reward" id="reward">{bottle.reward}</p>
-      </div
+      </div>
     </div>
   );
 }
